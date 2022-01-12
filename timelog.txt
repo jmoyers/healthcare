@@ -1,0 +1,38 @@
+## Tuesday Jan 11, 2022 - 4 hours~
+
+Create a readme, develop a set of project goals, decide on technology
+
+Install 17.x node using nvm, install npm@latest, install serverless@latest
+
+Create project directory structure (services, client)
+
+Install create-react-app@latest
+
+Create a new non-ejected react app in client directory
+
+Install typescript dependencies
+
+Modify create-react-app install to use typescript
+
+Start up the react development server
+
+Install tailwind css framework
+
+Install postcss and create config files for tailwind and postcss so we can
+use the framework without ejecting from create react app
+
+Get some test tailwindcss into the main App to make sure its all hooked up to 
+build
+
+Take a look at CloudFront distribution via serverless framework
+
+Install the AWS cli so that serverless can use credentials from the config
+
+Create a serverless.yml file for the react frontend part of the site, include
+config for an s3 bucket sync and a cloudfront deployment from the s3 bucket
+
+## Wednesday Jan 12, 2022
+
+Now that we have an initial framework for development and deployment of the
+frontend, we'll do an initial commit
+
