@@ -1,0 +1,38 @@
+Goal: create a document store style data design that supports both storing
+templates for new types of forms and storing the results of form submissions
+from end-users for that type of form
+
+dynamodb specifics:
+* schemaless except for indexes
+* partition key - used as input to hash, must be unique per item. also 
+  determines physical storage layout
+* sort key - can be used as a part of a composite index along with parition
+  and for us its only use is likely sorting form responses by date
+* global secondary index as necessary when we need multiple types of
+  queries
+
+users
+  id - parition key
+  created - sort key
+  type - determine if they can create and edit forms and see submissions
+    admin
+    paitent
+
+form_types
+  id - partition key
+  owner - global secondary index
+  created - sort key
+  title - title at the top of the form submissions screen
+  description - short description of what the form is for
+  sections - individual form sections for user to respond to
+    title
+    required - this will trigger validation prior to form submission
+    type - determines how the form is shown to the end user
+      short_answer - single line input
+      paragraph - textarea type input
+      checkboxes - non-exclusive checkbox type input
+      dropdown - exclusive, we'll drive via open source search/complete
+      date - we'll show an input specific to date (open source)
+      time - input sepcific to time (open source)
+
+form_submissions

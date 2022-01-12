@@ -33,6 +33,29 @@ config for an s3 bucket sync and a cloudfront deployment from the s3 bucket
 
 ## Wednesday Jan 12, 2022
 
-Now that we have an initial framework for development and deployment of the
-frontend, we'll do an initial commit
+Do inital commit via conventioncommits.org style
 
+Create a basic data design for the form types so that we can start to work
+on displaying a form
+
+Set up infrastructure in our react app for handling form state and decide on
+state management library if any
+
+Work on the react components for displaying the form
+
+Create a dummy lambda function that returns a form object with all the
+right types of data
+
+Do round trip deploy of the dummy lambda function using serverless
+
+Make call from our react app to the dummy lambda function
+
+Display our dummy form in our react app based on dummy call
+
+Create a data design for a users table including authentication
+
+Decide on hash algorithm with work factor and a minimum memory requirement -
+Argon2id looks like it may be a standard in 2022
+
+Decide on cookie structure for JWT and API authorization within the 
+calls to lambda services
