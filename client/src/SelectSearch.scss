@@ -1,0 +1,33 @@
+@import "variables";
+
+.medscribe
+  .select-search:not(.select-search--multiple)
+  .select-search__input:hover {
+  border: $border;
+}
+
+.medscribe .select-search:not(.select-search--multiple) {
+  border-radius: $border-radius;
+  border: $border;
+}
+
+.medscribe .select-search__option.is-selected {
+  background-color: lighten($color-input-focus, 10%);
+  color: $color-text-dark;
+}
+
+.medscribe .select-search__option.is-highlighted.is-selected,
+.medscribe .select-search__option.is-selected:hover {
+  background-color: $color-input-focus;
+  color: $color-text-dark;
+}
+
+.medscribe .select-search__option.is-highlighted,
+.medscribe .select-search__option:not(.is-selected):hover {
+  background-color: $color-input-focus;
+  color: $color-text-dark;
+}
+
+.medscribe .select-search__option {
+  color: $color-text-primary;
+}

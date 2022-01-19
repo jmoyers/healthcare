@@ -1,12 +1,21 @@
 import React from "react";
 import style from "./MedscribeIntake.module.scss";
+import cx from "classnames";
 
 import CheckboxOption from "./CheckboxOption.js";
 import CheckboxGroup from "./CheckboxGroup.js";
+import SelectSearch from "react-select-search";
+import "react-select-search/style.css";
+import "./SelectSearch.scss";
 
 function MedscribeIntake() {
+  const options = [
+    { name: "English", value: "en" },
+    { name: "Spanish", value: "es" },
+  ];
+
   return (
-    <div className={style.container}>
+    <div className={cx("medscribe", style.container)}>
       <div className={style.intake}>
         <h1>Intake</h1>
         <form action="#" method="POST" className={style.medscribeForm}>
@@ -34,9 +43,15 @@ function MedscribeIntake() {
             <CheckboxOption label="cancer/tumors" optionName="o4" />
           </CheckboxGroup>
 
-          <input className={style.dropdown} />
-          <input className={style.dateInput} />
-          <input className={style.time} />
+          <fieldset>
+            <label htmlFor="language" className={style.dropdownLabel}>
+              Please select your preferred language:
+            </label>
+            <SelectSearch options={options} name="language" />
+          </fieldset>
+
+          {/* <input className={style.dateInput} /> */}
+          {/* <input className={style.time} /> */}
         </form>
       </div>
     </div>

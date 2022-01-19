@@ -7,6 +7,7 @@ const CheckboxOption = ({ label, optionName }) => {
       <input
         type="checkbox"
         name={optionName}
+        id={optionName}
         value={optionName}
         className={style.checkbox}
       />
