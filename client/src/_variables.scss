@@ -1,0 +1,63 @@
+$color-text-primary: rgba(0, 0, 0, 0.6);
+$color-text-dark: rgba(0, 0, 0, 0.9);
+$color-text-light: rgba(0, 0, 0, 0.1);
+
+$color-border: rgba(0, 0, 0, 0.25);
+$color-border-dark: rgba(0, 0, 0, 0.5);
+
+$color-input-text: rgba(0, 0, 0, 0.5);
+$color-input-focus: skyblue;
+
+$color-checked: rgba(0, 0, 0, 0.3);
+
+$color-background-modal: rgba(0, 0, 0, 0.5);
+$color-checked-light: rgba(0, 0, 0, 0.25);
+$color-background-light: rgba(0, 0, 0, 0.2);
+$color-background-dark: rgba(0, 0, 0, 0.7);
+
+$color-button-primary: #007bff;
+$color-button-primary-border: darken($color-button-primary, 20%);
+$color-button-primary-hover: lighten($color-button-primary, 10%);
+$color-button-primary-active: darken($color-button-primary, 10%);
+
+$color-button-secondary: #6c757d;
+$color-button-secondary-border: darken($color-button-secondary, 20%);
+$color-button-secondary-hover: lighten($color-button-secondary, 20%);
+$color-button-secondary-active: darken($color-button-secondary, 20%);
+
+$color-button-danger: #dc3545;
+$color-button-danger-border: darken($color-button-danger, 20%);
+$color-button-danger-hover: lighten($color-button-danger, 20%);
+$color-button-danger-active: darken($color-button-danger, 20%);
+
+$border: 1px solid $color-border;
+$border-dark: 1px solid $color-border-dark;
+$border-radius: 0.5rem;
+
+$input-padding: 0.25rem 1rem;
+$input-padding-large: 0.4rem 0.6rem;
+
+$transition-fn: 0.3s ease-in-out;
+
+$box-shadow-dark: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+$box-shadow-light: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+$box-shadow-home: 0 0.3rem 0.3rem rgba(0, 0, 0, 0.05);
+$box-shadow-focus: 0 0 3px $color-input-focus;
+
+@mixin lg {
+  @media only screen and (max-width: 800px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media only screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media only screen and (max-width: 500px) {
+    @content;
+  }
+}

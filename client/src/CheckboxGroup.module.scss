@@ -1,0 +1,12 @@
+@import "variables";
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 1.65rem;
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+}

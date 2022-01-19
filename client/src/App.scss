@@ -1,0 +1,71 @@
+@import "variables";
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-family: "Lato", sans-serif;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  color: $color-text-primary;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  color: $color-text-primary;
+  text-decoration: none;
+}
+
+input,
+textarea {
+  color: $color-input-text;
+  padding: $input-padding-large;
+  font-size: 1.9rem;
+  border: $border;
+  border-radius: $border-radius;
+  width: 100%;
+
+  outline: none;
+}
+
+form {
+  padding: 0;
+  margin: 0;
+}
+
+textarea {
+  height: 10rem;
+}
+
+label {
+  font-size: 1.5rem;
+}
+
+fieldset {
+  border: none;
+  width: 100%;
+  padding: 0;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: $box-shadow-focus;
+  border: 1px solid skyblue;
+}
+
+*::placeholder {
+  color: $color-text-light;
+}

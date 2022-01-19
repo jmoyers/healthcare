@@ -1,0 +1,12 @@
+@import "variables";
+
+.fieldset {
+  display: flex;
+  align-items: center;
+  flex-basis: 50%;
+  height: 3rem;
+}
+
+.checkbox {
+  width: 5rem;
+}
