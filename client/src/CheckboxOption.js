@@ -1,17 +1,19 @@
 import React from "react";
 import style from "./CheckboxOption.module.scss";
+import camelcase from "camelcase";
 
-const CheckboxOption = ({ label, optionName }) => {
+const CheckboxOption = ({ label }) => {
+  const id = camelcase(label).substring(0, 10);
   return (
     <fieldset className={style.fieldset}>
       <input
         type="checkbox"
-        name={optionName}
-        id={optionName}
-        value={optionName}
+        name={id}
+        id={id}
+        value={id}
         className={style.checkbox}
       />
-      <label htmlFor={optionName}>{label}</label>
+      <label htmlFor={id}>{label}</label>
     </fieldset>
   );
 };
