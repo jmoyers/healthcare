@@ -4,7 +4,6 @@ import cx from "classnames";
 
 import { Form } from "./api/form";
 import FormInput from "./FormInput";
-import camelcase from "camelcase";
 
 const MedscribeIntake = () => {
   let form = new Form();

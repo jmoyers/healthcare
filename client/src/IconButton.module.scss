@@ -1,0 +1,74 @@
+@import "variables";
+
+.iconButton {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  padding: 0.3rem;
+
+  transition: all 0.1s ease-in-out;
+
+  background-color: transparent;
+
+  cursor: pointer;
+  border: none;
+  border-radius: 0.25rem;
+
+  color: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  z-index: 10000;
+}
+
+.sm {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.md {
+  width: 5rem;
+  height: 5rem;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.iconButton:focus {
+  border: 2px solid rgb(108, 197, 226);
+  border-radius: 0.5rem;
+  outline: none;
+}
+
+.iconButton:hover {
+  color: rgba(0, 0, 0, 0.7);
+  transform: scale(1.05);
+  outline: none;
+}
+
+.iconButton:active {
+  transform: translateY(0.1rem);
+}
+
+.iconButton:focus {
+  outline: none;
+  border: none;
+  color: $color-input-focus;
+}
+
+.border {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+}

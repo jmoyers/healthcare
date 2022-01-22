@@ -1,0 +1,33 @@
+@import "variables";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deadLeft {
+  flex: 1;
+}
+
+.formEditContainer {
+  flex: 3;
+}
+
+.controlsContainer {
+  flex: 1;
+}
+
+.formSection {
+  width: 100%;
+  min-height: 10rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+
+  border-radius: $border-radius;
+  box-shadow: $box-shadow-light;
+}
+
+:global .medscribe h2 {
+  margin-bottom: 2rem;
+}
