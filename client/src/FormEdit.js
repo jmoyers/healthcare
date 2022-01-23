@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "./FormEdit.module.scss";
 import cx from "classnames";
 import IconButton from "./IconButton";
+import Button from "./Button";
 
 const useFormState = (initial) => {
   const [state, setState] = useState(initial);
@@ -47,6 +48,7 @@ const FormEdit = () => {
       </div>
       <div className={style.controlsContainer}>
         <IconButton icon="plus" size="md" />
+        <Button type="primary">Done</Button>
       </div>
     </div>
   );

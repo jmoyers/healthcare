@@ -1,0 +1,21 @@
+@import "variables";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 3rem;
+  box-shadow: $box-shadow-home;
+}
+
+.siteName {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  color: $color-button-primary;
+}
+
+.rightNav {
+  display: flex;
+  justify-content: space-around;
+}

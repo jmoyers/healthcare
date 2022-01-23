@@ -1,0 +1,6 @@
+* Create a component for editting forms
+* Add react-query to the project
+* Create a framework for how to hang state for user, form responses, forms
+* Populated initial data for each
+* Create a component for a table of form responses
+* Create a component for displaying a single form response
