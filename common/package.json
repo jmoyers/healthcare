@@ -1,0 +1,27 @@
+{
+  "name": "@medscribe/common",
+  "version": "0.0.1",
+  "description": "Deal with user auth, forms, form responses",
+  "scripts": {
+    "test": "jest --runInBand"
+  },
+  "keywords": [],
+  "author": "josh@jmoyers.org",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "anylogger": "^1.0.11",
+    "axios": "latest",
+    "bcryptjs": "latest",
+    "dotenv": "latest",
+    "google-auth-library": "latest",
+    "jsonwebtoken": "latest",
+    "nanoid": "latest",
+    "pg": "latest",
+    "ua-parser-js": "latest",
+    "ulog": "^2.0.0-beta.19"
+  },
+  "devDependencies": {
+    "jest": "latest"
+  },
+  "private": true
+}

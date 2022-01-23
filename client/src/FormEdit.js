@@ -37,6 +37,16 @@ const FormEdit = () => {
           <h2>Title</h2>
           <input type="text" value={title} onChange={onChangeTitle}></input>
         </div>
+
+        <div className={style.formSection}>
+          <h2>Description</h2>
+          <input
+            type="text"
+            value={description}
+            onChange={onChangeDesc}
+          ></input>
+        </div>
+
         <div className={style.formSection}>
           <h2>Description</h2>
           <input

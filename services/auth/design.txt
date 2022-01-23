@@ -1,0 +1,136 @@
+cookie, http only, secure
+  "session_token", jwt as contents
+  keep out of the grubby hands of plebs
+  use the graphql server to send relevant profile information without jwt
+
+structure
+  tables
+    users
+      id - text - required, generated locally via trigger
+      email - text - required, provided by user or 3rd party oauth2 flow
+      password - text - optional due to allowing google auth
+      created - datetime - required, generated locally via trigger
+      settings - jsonb - property bag for profile settings
+
+    users_oauth
+      user_id - text, required, our local user id
+      external_id - text - required, user id from external service
+      service - text - required, "google" always for now
+      created - datetime - required
+
+  auth library - shared between auth and graphql servers
+    createAccount(email, password)
+      store password in `users`
+      use bcrypt to salt and store password
+      do require captcha to stop one DOS vector
+
+    createAccountWithExt(email, external {google: token_id})
+      store users email in `users`
+      store user id, external service id, in `users_oauth`
+
+    verifyJWT(session_token)
+      - verify the jwt and take items out of the session_token jwt
+
+      - if external auth (google only support atm)
+        - calls getOauthForUser
+        - calls verifyGoogleJWT
+
+    checkPassword(email, password)
+
+    getUser(userId)
+      - used to attach user info to the request
+
+    getOauthForUser(userId)
+      - gets list of external service ids for a usersId
+      -
+
+    verifyGoogleJWT(external.google.token_id)
+    //verifyFacebookJWT(external.facebook.token_id)
+
+    verifyLocalCredentials(email, password)
+      check postgres database direct
+      password stored using salted bcrypt hash
+      log bad attempts
+
+    generateJWT()
+      {
+        userId: [id from opencourse database],
+        iat: [now],
+        exp: [now + 30 days],
+        version: "1.0.0",  // invalidate tokens easily in the future as necessary
+        device: [https://github.com/faisalman/ua-parser-js, pluck os, browser, device]
+        aud: "Web",
+        external: {
+          type: "google",
+          payload: token_id -- verify on every request
+        }
+      }
+
+
+
+  express - rest, will interact with react app via axios
+    react app requirements
+      - any graphql request can fail due to authentication
+        - use this to set local apollo store to indicate users not logged in
+      - specific graphql request to bootstrap authenticated state
+        - takes session_token cookie value and delegates to auth server, integrates
+          response
+        - we'll use User schema object and a special endpoint for self
+
+      - sign in: google or email
+        - google redirects directly to our auth url (can be generated on client)
+        - url redirect goes to our auth server /api/v1/auth/google/response
+      - sign out
+        - clear jwt cookie. can't be done client side, we're setting http only
+
+    /api/v1 - scoped
+
+    /auth/logout
+      request:post
+        - clear cookie session_token
+
+    /auth/login
+      request:post
+        - check cookie "session_token" exists
+        - verifyJWT(session_token)
+      response
+        - set cookie session_token
+        - generateJWT
+        - status code indicates success, 200 empty body
+        - on error
+          {
+            errors:[
+              some,
+              errors
+            ]
+          }
+
+
+    /auth/create - Create an account with local credentials, set up session
+      request:post
+        - username
+        - password
+      response
+        - set cookie "session_token"
+          - generateJWT()
+        - status code indicates success, 200 empty body
+        - on error
+          {
+            errors: [
+              several,
+              errors
+            ]
+          }
+
+
+    /auth/google/response - Create or verify existing account, set up session
+      request: get with code query param
+        - receives a "code" from google which is used to generate the jwt
+        - with jwt, we check if its a new account
+          - stores the 'sub' createAccountWithExt
+          - otherwise just verify sub is the same
+        - verifyGoogleJWT() - make sure nobody bein' crazy in here
+      response:
+        - set cookie "session_token"
+          - generateJWT()
+        - redirect to our app root - /

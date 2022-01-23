@@ -6,16 +6,12 @@
   justify-content: center;
 }
 
-.deadLeft {
-  flex: 1;
-}
-
 .formEditContainer {
-  flex: 3;
+  width: 80rem;
 }
 
 .controlsContainer {
-  flex: 1;
+  border: 1px solid red;
 }
 
 .formSection {
