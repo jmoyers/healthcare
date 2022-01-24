@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const bcrypt = require("bcryptjs");
 const assert = require("assert");
 const log = require("ulog")("user");
@@ -12,8 +14,17 @@ dynamoose.aws.ddb.local();
 
 const AccountSchema = new dynamoose.Schema(
   {
-    id: String,
-    email: String,
+    email: {
+      hashKey: true,
+      type: String,
+    },
+    id: {
+      index: {
+        name: "idIndex",
+        global: true,
+      },
+      type: String,
+    },
     password: String,
   },
   {
@@ -21,21 +32,53 @@ const AccountSchema = new dynamoose.Schema(
   }
 );
 
-const AccountModel = dynamoose.model("Account", AccountSchema);
+const Account = dynamoose.model("Account", AccountSchema, {
+  update: true,
+});
+
+async function ensureTableExists() {
+  await Account.table.create.request();
+}
+
+ensureTableExists();
 
 const AccountAPI = {
-  async getAccountByEmail(email) {},
-  async getAccountById(id) {},
-  async deleteAccountByEmail(email) {},
-  async checkEmailExists(email) {
-    return false;
-  },
-  async createAccount(email, password) {
-    // check if email exists
-    if (await AccountAPI.checkEmailExists(email)) {
-      throw new Error("Email is already registered.");
+  async getAccountByEmail(email) {
+    try {
+      const results = await Account.query("email").eq(email).exec();
+      return results.toJSON()[0];
+    } catch (e) {
+      log.error("Problem getting account by email", e);
     }
 
+    return false;
+  },
+  async getAccountById(id) {
+    log("Getting account by id", id);
+
+    try {
+      const results = await Account.query("id").eq(id).exec();
+      return results.toJSON()[0];
+    } catch (e) {
+      log.error("Problem getting account by id", e);
+    }
+
+    return false;
+  },
+  async deleteAccountByEmail(email) {
+    try {
+      const results = await Account.delete(email);
+      return true;
+    } catch (e) {
+      log.error("Problem getting account by id", e);
+      return false;
+    }
+  },
+  async checkEmailExists(email) {
+    const result = await AccountAPI.getAccountByEmail(email);
+    return result ? true : false;
+  },
+  async createAccount(email, password) {
     // generate password hash with bcrypt
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
@@ -43,12 +86,16 @@ const AccountAPI = {
     try {
       const account = new Account({ id: nanoid(), email, password: hash });
       await account.save();
+      const json = account.toJSON();
+      log("Saved account", json);
+      return json;
     } catch (e) {
       log.error("Problem creating account", e);
+      return false;
     }
   },
   async checkPassword(email, password) {
-    const user = await Account.getAccountByEmail(email);
+    const user = await AccountAPI.getAccountByEmail(email);
 
     if (!user) return false;
 

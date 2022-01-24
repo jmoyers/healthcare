@@ -16,24 +16,38 @@ describe("Account", () => {
     await end();
   });
 
+  it("can create an account with a password", async () => {
+    const user = await Account.createAccount(testEmail, testPassword);
+
+    expect(user.id).toBeTruthy();
+
+    const goodPassword = await Account.checkPassword(testEmail, testPassword);
+
+    expect(goodPassword).toBeTruthy();
+
+    const badPassword = await Account.checkPassword(testEmail, "bad");
+    expect(badPassword).toBeFalsy();
+  });
+
   it("can retreive user by email", async () => {
-    const id = await Account.createAccount(testEmail, testPassword);
+    const user = await Account.createAccount(testEmail, testPassword);
     const response = await Account.getAccountByEmail(testEmail);
 
     expect(response.email).toBe(testEmail);
-    expect(response.id).toBe(id);
+    expect(response.id).toBe(user.id);
   });
 
   it("can retreive user by id", async () => {
-    const id = await Account.createAccount(testEmail, testPassword);
+    const account = await Account.createAccount(testEmail, testPassword);
 
-    const response = await Account.getAccountById(id);
+    const response = await Account.getAccountById(account.id);
 
     expect(response.email).toBe(testEmail);
   });
 
   it("can delete a user by email", async () => {
-    const id = await Account.createAccount(testEmail, testPassword);
+    const user = await Account.createAccount(testEmail, testPassword);
+    const id = user.id;
 
     const response = await Account.getAccountById(id);
     expect(response).toBeTruthy();
@@ -54,19 +68,5 @@ describe("Account", () => {
 
     const doesNotExist = await Account.checkEmailExists(testEmail);
     expect(doesNotExist).toBeFalsy();
-  });
-
-  it("can create an account with a password", async () => {
-    const testPass = "aksldjfalksdjf";
-    const id = await Account.createAccount(testEmail, testPass);
-
-    expect(id).toBeTruthy();
-
-    const goodPassword = await Account.checkPassword(testEmail, testPass);
-
-    expect(goodPassword).toBeTruthy();
-
-    const badPassword = await Account.checkPassword(testEmail, "bad");
-    expect(badPassword).toBeFalsy();
   });
 });
