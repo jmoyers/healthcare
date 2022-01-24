@@ -13,9 +13,11 @@
     "axios": "latest",
     "bcryptjs": "latest",
     "dotenv": "latest",
+    "dynamoose": "^2.8.5",
     "google-auth-library": "latest",
+    "joi": "^17.5.0",
     "jsonwebtoken": "latest",
-    "nanoid": "latest",
+    "nanoid": "^3.2.0",
     "pg": "latest",
     "ua-parser-js": "latest",
     "ulog": "^2.0.0-beta.19"

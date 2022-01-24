@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./MedscribeIntake.module.scss";
 import cx from "classnames";
 
-import { Form } from "./api/form";
+import { Form } from "./state/form";
 import FormInput from "./FormInput";
 
 const MedscribeIntake = () => {

@@ -1,4 +1,4 @@
-import { InputTypes } from "./api/form";
+import { InputTypes } from "./state/form";
 import style from "./FormInput.module.scss";
 import CheckboxGroup from "./CheckboxGroup";
 import CheckboxOption from "./CheckboxOption";
@@ -9,7 +9,6 @@ import "react-select-search/style.css";
 import "./react-selectsearch-custom.scss";
 import "react-datetime/css/react-datetime.css";
 import camelcase from "camelcase";
-import { parseTwoDigitYear } from "moment";
 
 const toKey = (string) => {
   return camelcase(string).substring(0, 10);
