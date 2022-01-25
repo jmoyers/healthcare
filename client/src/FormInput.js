@@ -1,4 +1,4 @@
-import { InputTypes } from "./state/form";
+import { InputTypes } from "./hooks/form";
 import style from "./FormInput.module.scss";
 import CheckboxGroup from "./CheckboxGroup";
 import CheckboxOption from "./CheckboxOption";

@@ -2,7 +2,7 @@
   "forms": [
     {
       "id": "t6jV4u1nvVlJ6nx1RHoGC",
-      "title": "test form 1",
+      "title": "test form and we are done",
       "description": "A test form",
       "sections": [
         {
@@ -24,7 +24,10 @@
           "title": "Please select your preferred language:",
           "type": "DROPDOWN",
           "required": true,
-          "options": ["English", "Spanish"]
+          "options": [
+            "English",
+            "Spanish"
+          ]
         },
         {
           "title": "Please choose a desired date for visit:",
@@ -47,22 +50,26 @@
     {
       "id": "iFee6VITP8IAErjqUawE7",
       "title": "test form 1",
-      "description": "A test form"
+      "description": "A test form",
+      "sections": []
     },
     {
       "id": "kSTKX17HTfbDViHX7qSPp",
       "title": "test form 1",
-      "description": "A test form"
+      "description": "A test form",
+      "sections": []
     },
     {
       "id": "A_S9j61Ai9Wcne6qsABzf",
       "title": "test form 1",
-      "description": "A test form"
+      "description": "A test form",
+      "sections": []
     },
     {
       "id": "Au7fu5LVAU6yt4odekSzP",
       "title": "test form 1",
-      "description": "A test form"
+      "description": "A test form",
+      "sections": []
     }
   ]
 }

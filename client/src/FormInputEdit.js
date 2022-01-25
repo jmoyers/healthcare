@@ -1,5 +1,4 @@
-import useFormState from "./state/useFormState";
-import { InputTypes } from "./state/form";
+import { InputTypes } from "./hooks/form";
 import style from "./FormInputEdit.module.scss";
 import SelectSearch from "react-select-search";
 

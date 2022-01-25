@@ -13,17 +13,21 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import MedscribeIntake from "./MedscribeIntake";
 import FormEdit from "./FormEdit";
 import Header from "./Header";
+import { QueryClient, QueryClientProvider } from "react-query";
+const queryClient = new QueryClient();
 
 const App = () => (
-  <BrowserRouter>
-    <div className={styles.container}>
-      <Header />
-      <Routes>
-        <Route path="/" element={<MedscribeIntake />} />
-        <Route path="/edit" element={<FormEdit />} />
-      </Routes>
-    </div>
-  </BrowserRouter>
+  <QueryClientProvider client={queryClient}>
+    <BrowserRouter>
+      <div className={styles.container}>
+        <Header />
+        <Routes>
+          <Route path="/form/:id/edit" element={<FormEdit />} />
+          <Route path="/form/:id/respond" element={<MedscribeIntake />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  </QueryClientProvider>
 );
 
 export default App;

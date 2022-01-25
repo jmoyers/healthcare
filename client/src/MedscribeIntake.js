@@ -2,22 +2,25 @@ import React from "react";
 import style from "./MedscribeIntake.module.scss";
 import cx from "classnames";
 
-import { Form } from "./state/form";
 import FormInput from "./FormInput";
 
+import { useForm } from "./hooks/form";
+import { useParams } from "react-router-dom";
+
 const MedscribeIntake = () => {
-  let form = new Form();
+  const { id } = useParams();
+  const { status, data: form, error } = useForm(id);
 
   return (
     <div className={cx("medscribe", style.container)}>
-      <div className={style.intake}>
-        <h1>{form.title}</h1>
-        <form action="#" method="POST" className={style.medscribeForm}>
+      {status === "success" && (
+        <div className={style.intake}>
+          <h1>{form.title}</h1>
           {form.sections.map((section) => (
             <FormInput section={section} />
           ))}
-        </form>
-      </div>
+        </div>
+      )}
     </div>
   );
 };
