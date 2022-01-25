@@ -30,4 +30,4 @@ browse around and check out the code.
   - [ ] serverless framework deploy on AWS via lambdas
   - [ ] DynamoDB back-end, local dynamodb for dev
 
-![screenshot form edit] (screenshot.png)
+![screenshot form edit](screenshot.png)
