@@ -4,8 +4,9 @@ import cx from "classnames";
 import Button from "./Button";
 import FormInputEdit from "./FormInputEdit";
 import { useParams } from "react-router-dom";
+import { nanoid } from "nanoid";
 
-import { useForm, useFormMutation } from "./hooks/form";
+import { InputTypes, useForm, useFormMutation } from "./hooks/form";
 
 const FormEdit = () => {
   const { id } = useParams();
@@ -24,13 +25,26 @@ const FormEdit = () => {
       description: e.target.value,
     });
 
-  const onClickAdd = () => {};
+  const onClickAdd = () => {
+    const newForm = {
+      ...form,
+    };
+
+    newForm.sections.push({
+      id: nanoid(),
+      title: "",
+      type: InputTypes.ShortAnswer,
+      required: false,
+    });
+
+    mutate(newForm);
+  };
 
   const onClickDelete = (section) => {
     console.log("click delete");
 
     for (const [i, sec] of form.sections.entries()) {
-      if (sec.title === section.title) {
+      if (sec.id === section.id) {
         const secTmp = [...form.sections];
 
         secTmp.splice(i, 1);
@@ -85,7 +99,7 @@ const FormEdit = () => {
             {form.sections.map((section) => (
               <FormInputEdit
                 section={section}
-                key={section.title}
+                key={section.id}
                 onClickDelete={() => onClickDelete(section)}
                 onChange={onChangeSection}
               />
