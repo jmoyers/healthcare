@@ -6,6 +6,16 @@
       "description": "A test form",
       "sections": [
         {
+          "title": "First Name",
+          "type": "SHORT_ANSWER",
+          "required": true
+        },
+        {
+          "title": "Last Name",
+          "type": "SHORT_ANSWER",
+          "required": true
+        },
+        {
           "title": "What is your reason for visit today?",
           "type": "PARAGRAPH",
           "required": true
@@ -18,6 +28,11 @@
             "English",
             "Spanish"
           ]
+        },
+        {
+          "title": "Please choose a desired date for visit:",
+          "type": "DATE_TIME",
+          "required": true
         },
         {
           "title": "Please indicate any conditions that you have had or currently have:",

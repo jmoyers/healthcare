@@ -27,8 +27,10 @@ const FormEdit = () => {
   const onClickAdd = () => {};
 
   const onClickDelete = (section) => {
+    console.log("click delete");
+
     for (const [i, sec] of form.sections.entries()) {
-      if (sec.id === section.id) {
+      if (sec.title === section.title) {
         const secTmp = [...form.sections];
 
         secTmp.splice(i, 1);
@@ -37,6 +39,10 @@ const FormEdit = () => {
           ...form,
           sections: secTmp,
         };
+
+        console.log("delete", sec);
+        console.log("before", form.sections);
+        console.log("after", newForm.sections);
 
         mutate(newForm);
       }
