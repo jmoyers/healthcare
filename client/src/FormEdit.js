@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./FormEdit.module.scss";
 import cx from "classnames";
-import log from "ulog";
 import Button from "./Button";
 import FormInputEdit from "./FormInputEdit";
 import { Form } from "./state/form";
@@ -12,37 +11,46 @@ const useFormState = (initial) => {
   return [state, handleEvent, setState];
 };
 
-/**
- * Create a floating panel on the right that allows for you
- * to add new form fields, edit existing form fields. Each
- * form input should be in a floating container centered on
- * the screen.
- *
- * There will be a dropdown to select the form input type
- * an editable input for the title of the form input and
- * the ability to add options where appropriate to checkbox
- * or radio button groups.
- *
- * We will save on the fly and not require you to hit a save
- * button.
- */
-
 const FormEdit = () => {
   const [title, onChangeTitle] = useFormState("A form title");
   const [description, onChangeDesc] = useFormState("A form description...");
+  const [form, setForm] = useState();
+  const [loading, setLoading] = useState(true);
 
-  const form = new Form();
-
-  const [sections, setSections] = useState(form.sections);
+  useEffect(() => {
+    console.log("trigger");
+    setForm(new Form());
+    setLoading(false);
+  }, []);
 
   const onClickAdd = () => {};
 
   const onClickDelete = (section) => {
-    console.log("test");
-    log(section);
+    for (const [i, sec] of form.sections.entries()) {
+      if (sec.id === section.id) {
+        const secTmp = [...form.sections];
+
+        secTmp.splice(i, 1);
+
+        const newForm = {
+          ...form,
+          sections: secTmp,
+        };
+
+        setForm(newForm);
+      }
+    }
   };
 
-  const onChangeSection = (section) => {};
+  const onChangeSection = (section) => {
+    for (const [i, sec] of form.sections.entries()) {
+      if (sec.id === section.id) {
+        form.sections[i] = section;
+      }
+    }
+
+    setForm({ ...form });
+  };
 
   return (
     <>
@@ -62,14 +70,15 @@ const FormEdit = () => {
             ></input>
           </div>
 
-          {sections.map((section) => (
-            <FormInputEdit
-              section={section}
-              key={section.id}
-              onClickDelete={() => onClickDelete(section)}
-              onChange={() => onChangeSection(section)}
-            />
-          ))}
+          {!loading &&
+            form.sections.map((section) => (
+              <FormInputEdit
+                section={section}
+                key={section.id}
+                onClickDelete={() => onClickDelete(section)}
+                onChange={onChangeSection}
+              />
+            ))}
         </div>
       </div>
       <div className={style.controlsContainer}>

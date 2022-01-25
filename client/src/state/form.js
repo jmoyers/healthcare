@@ -50,6 +50,7 @@ const InputTypes = {
   ShortAnswer: "SHORT_ANSWER",
   Paragraph: "PARAGRAPH",
   Checkbox: "CHECKBOX",
+  CheckboxGroup: "CHECKBOX_GROUP",
   Dropdown: "DROPDOWN",
   DateTime: "DATETIME",
 };
