@@ -1,0 +1,42 @@
+@import "variables";
+
+.formSection {
+  border-radius: $border-radius;
+  border: $color-border 1px solid;
+  background-color: whitesmoke;
+  padding: 3rem 2rem;
+  margin-top: 5rem;
+}
+
+.textInput {
+  border: 1px dotted $color-border;
+  background-color: white;
+  padding: 1rem;
+  margin: 2rem 0rem;
+}
+
+.bottomToolbar {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  gap: 2rem;
+  border-top: 1px dotted $color-border;
+}
+
+.reqFieldset {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 10rem;
+  margin: 0;
+  padding: 0;
+}
+
+.reqLabel {
+  align-self: center;
+}
+
+.reqCheckbox {
+  width: 3rem;
+}

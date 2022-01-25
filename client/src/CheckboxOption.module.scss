@@ -3,11 +3,17 @@
 .fieldset {
   display: flex;
   align-items: center;
-  flex-basis: 50%;
-  height: 3rem;
-  margin-bottom: 1rem;
+  width: 45%;
+  margin: 0;
+}
+
+.fieldsetEnd {
+  justify-content: flex-end;
+}
+
+.label {
+  width: 100%;
 }
 
 .checkbox {
-  width: 5rem;
 }

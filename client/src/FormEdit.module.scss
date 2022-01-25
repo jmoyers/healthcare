@@ -1,9 +1,9 @@
 @import "variables";
 
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 15rem;
 }
 
 .formEditContainer {
@@ -11,17 +11,28 @@
 }
 
 .controlsContainer {
-  border: 1px solid red;
+  border: 1px solid $color-border;
+  width: 80rem;
+  padding: 2rem;
+
+  margin-left: -40rem;
+
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+
+  background-color: white;
+  z-index: 9999;
 }
 
 .formSection {
   width: 100%;
+  margin-top: 5rem;
   min-height: 10rem;
-  margin-bottom: 3rem;
   padding: 2rem;
-
+  border: 1px solid $color-border;
   border-radius: $border-radius;
-  box-shadow: $box-shadow-light;
+  background-color: whitesmoke;
 }
 
 :global .medscribe h2 {

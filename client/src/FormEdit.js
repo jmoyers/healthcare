@@ -3,6 +3,8 @@ import style from "./FormEdit.module.scss";
 import cx from "classnames";
 import IconButton from "./IconButton";
 import Button from "./Button";
+import FormInputEdit from "./FormInputEdit";
+import { Form } from "./state/form";
 
 const useFormState = (initial) => {
   const [state, setState] = useState(initial);
@@ -29,38 +31,38 @@ const FormEdit = () => {
   const [title, onChangeTitle] = useFormState("A form title");
   const [description, onChangeDesc] = useState("A form description...");
 
+  const form = new Form();
+  const sections = form.sections;
+
   return (
-    <div className={cx("medscribe", style.container)}>
-      <div className={style.deadLeft}></div>
-      <div className={style.formEditContainer}>
-        <div className={style.formSection}>
-          <h2>Title</h2>
-          <input type="text" value={title} onChange={onChangeTitle}></input>
-        </div>
+    <>
+      <div className={cx("medscribe", style.container)}>
+        <div className={style.formEditContainer}>
+          <div className={style.formSection}>
+            <h2>Title</h2>
+            <input type="text" value={title} onChange={onChangeTitle}></input>
+          </div>
 
-        <div className={style.formSection}>
-          <h2>Description</h2>
-          <input
-            type="text"
-            value={description}
-            onChange={onChangeDesc}
-          ></input>
-        </div>
+          <div className={style.formSection}>
+            <h2>Description</h2>
+            <input
+              type="text"
+              value={description}
+              onChange={onChangeDesc}
+            ></input>
+          </div>
 
-        <div className={style.formSection}>
-          <h2>Description</h2>
-          <input
-            type="text"
-            value={description}
-            onChange={onChangeDesc}
-          ></input>
+          {sections.map((section) => (
+            <FormInputEdit section={section} />
+          ))}
         </div>
       </div>
       <div className={style.controlsContainer}>
-        <IconButton icon="plus" size="md" />
-        <Button type="primary">Done</Button>
+        <Button type="primary" icon="plus">
+          Add Question
+        </Button>
       </div>
-    </div>
+    </>
   );
 };
 
