@@ -6,14 +6,8 @@
       "description": "A test form description",
       "sections": [
         {
-          "title": "First Name",
-          "type": "SHORT_ANSWER",
-          "required": true,
-          "id": "n1QMf0q_pJwiTlVUJHIlS"
-        },
-        {
           "title": "Last Name",
-          "type": "PARAGRAPH",
+          "type": "SHORT_ANSWER",
           "required": true,
           "id": "9F3TxQOgkzKrm6rhNfZto"
         },
@@ -66,8 +60,8 @@
         },
         {
           "id": "GYocKZacLm0j2yOnKCMeD",
-          "title": "",
-          "type": "SHORT_ANSWER",
+          "title": "Different title",
+          "type": "PARAGRAPH",
           "required": false,
           "new": false
         }

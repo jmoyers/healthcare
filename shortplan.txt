@@ -1,1 +1,10 @@
-* Create new form
+Today:
+* Create new form, CHECKBOX_GROUP
+* Create new form, DATE_TIME
+* Create new form, select
+* Debounce form field upates
+
+Tomorrow:
+* Round-trip form response to JSON server
+* Show forms to edit in a table
+* Show reponses in a table
