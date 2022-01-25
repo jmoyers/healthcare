@@ -1,19 +1,21 @@
-import react, { useState } from "react";
 import useFormState from "./state/useFormState";
 import { InputTypes } from "./state/form";
 import style from "./FormInputEdit.module.scss";
-import CheckboxOption from "./CheckboxOption";
 import SelectSearch from "react-select-search";
 
-import "react-select-search/style.css";
-import "./react-selectsearch-custom.scss";
-import "react-datetime/css/react-datetime.css";
 import IconButton from "./IconButton";
 
-const FormInputEdit = ({ section }) => {
-  const { id, title, type, required: reqProp, options } = section;
+import log from "ulog";
 
-  const [required, handleRequiredEvent, setRequired] = useFormState(reqProp);
+const FormInputEdit = (props) => {
+  const { id, title, type, required: reqProp, options } = props.section;
+  const { onClickDelete = () => {}, onChangeSection = () => {} } = props;
+
+  const [required, handleRequiredEvent] = useFormState(reqProp);
+
+  const onSelectChange = (a1, a2, a3) => {
+    log(a1, a2, a3);
+  };
 
   const questionTypes = [
     {
@@ -38,11 +40,12 @@ const FormInputEdit = ({ section }) => {
     },
   ];
 
-  console.log(section);
+  log(props.section);
 
   return (
     <div className={style.formSection}>
-      <input type="text" value={title}></input>
+      <h2>Question</h2>
+      <input type="text" defaultValue={title}></input>
       {type === InputTypes.ShortAnswer && (
         <div className={style.textInput}>Short answer text</div>
       )}
@@ -52,7 +55,9 @@ const FormInputEdit = ({ section }) => {
       <div className={style.bottomToolbar}>
         <SelectSearch
           options={questionTypes}
+          value={type}
           name="questionType"
+          onChange={onSelectChange}
         ></SelectSearch>
         <fieldset className={style.reqFieldset}>
           <label className={style.reqLabel} htmlFor="required">
@@ -66,7 +71,7 @@ const FormInputEdit = ({ section }) => {
             onChange={handleRequiredEvent}
           />
         </fieldset>
-        <IconButton size="md" icon="trash"></IconButton>
+        <IconButton size="md" icon="trash" onClick={onClickDelete}></IconButton>
       </div>
     </div>
   );

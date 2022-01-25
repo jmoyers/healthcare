@@ -46,13 +46,13 @@ class Form {
   }
 }
 
-const InputTypes = Object.freeze({
-  ShortAnswer: Symbol("SHORT_ANSWER"),
-  Paragraph: Symbol("PARAGRAPH"),
-  Checkbox: Symbol("CHECKBOX"),
-  Dropdown: Symbol("DROPDOWN"),
-  DateTime: Symbol("DateTime"),
-});
+const InputTypes = {
+  ShortAnswer: "SHORT_ANSWER",
+  Paragraph: "PARAGRAPH",
+  Checkbox: "CHECKBOX",
+  Dropdown: "DROPDOWN",
+  DateTime: "DATETIME",
+};
 
 class FormSection {
   constructor(title, type, required, options = [], id = false) {

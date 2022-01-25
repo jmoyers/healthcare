@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import style from "./FormEdit.module.scss";
 import cx from "classnames";
-import IconButton from "./IconButton";
+import log from "ulog";
 import Button from "./Button";
 import FormInputEdit from "./FormInputEdit";
 import { Form } from "./state/form";
@@ -29,10 +29,20 @@ const useFormState = (initial) => {
 
 const FormEdit = () => {
   const [title, onChangeTitle] = useFormState("A form title");
-  const [description, onChangeDesc] = useState("A form description...");
+  const [description, onChangeDesc] = useFormState("A form description...");
 
   const form = new Form();
-  const sections = form.sections;
+
+  const [sections, setSections] = useState(form.sections);
+
+  const onClickAdd = () => {};
+
+  const onClickDelete = (section) => {
+    console.log("test");
+    log(section);
+  };
+
+  const onChangeSection = (section) => {};
 
   return (
     <>
@@ -53,12 +63,17 @@ const FormEdit = () => {
           </div>
 
           {sections.map((section) => (
-            <FormInputEdit section={section} />
+            <FormInputEdit
+              section={section}
+              key={section.id}
+              onClickDelete={() => onClickDelete(section)}
+              onChange={() => onChangeSection(section)}
+            />
           ))}
         </div>
       </div>
       <div className={style.controlsContainer}>
-        <Button type="primary" icon="plus">
+        <Button type="primary" icon="plus" onClick={onClickAdd}>
           Add Question
         </Button>
       </div>
