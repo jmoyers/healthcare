@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import style from "./FormEdit.module.scss";
 import cx from "classnames";
 import Button from "./Button";
@@ -12,6 +12,30 @@ const FormEdit = () => {
   const { id } = useParams();
   const { status, data: form } = useForm(id);
   const { mutate } = useFormMutation(id);
+
+  useLayoutEffect(() => {
+    let wasNew = false;
+
+    if (status !== "success") return;
+
+    for (const [i, section] of form.sections.entries()) {
+      if (section.new) {
+        wasNew = true;
+
+        window.scrollTo({
+          left: 0,
+          top: document.body.scrollHeight,
+          behavior: "smooth",
+        });
+
+        form.sections[i].new = false;
+      }
+    }
+
+    if (wasNew) {
+      mutate(form);
+    }
+  });
 
   const onChangeTitle = (e) =>
     mutate({
@@ -35,6 +59,7 @@ const FormEdit = () => {
       title: "",
       type: InputTypes.ShortAnswer,
       required: false,
+      new: true,
     });
 
     mutate(newForm);

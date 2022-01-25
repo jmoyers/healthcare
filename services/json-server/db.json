@@ -40,7 +40,7 @@
           "id": "aKJgDeqI7cIn836KLd_yr"
         },
         {
-          "title": "Please indicate any conditions that you have had or currently have:e",
+          "title": "Please indicate any conditions that you have had or currently have:",
           "type": "CHECKBOX_GROUP",
           "required": true,
           "options": [
@@ -53,9 +53,23 @@
         },
         {
           "id": "853zrIBOg_c4VPBtPXRav",
-          "title": "Test test test",
+          "title": "Test test test test",
           "type": "SHORT_ANSWER",
           "required": false
+        },
+        {
+          "id": "CN-r_dL8jZSO6uCuMdtsH",
+          "title": "",
+          "type": "SHORT_ANSWER",
+          "required": false,
+          "new": false
+        },
+        {
+          "id": "GYocKZacLm0j2yOnKCMeD",
+          "title": "",
+          "type": "SHORT_ANSWER",
+          "required": false,
+          "new": false
         }
       ]
     },
