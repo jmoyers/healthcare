@@ -8,7 +8,7 @@ browse around and check out the code.
 - Well contained development cycle: 1 sprint, roughly 10 8-hour days
 - Use best practices and create a consise and beautiful frontend using React
 - Create a simple, scalable backend using microservices and AWS (serverless)
-- Keeping the markup and css modern and lightweight using a framework (Tailwind)
+- Keeping the markup and css modern and lightweight, focus on flexbox
 - Reponsive design using scss templated media queries
 - Good evergreen browser compatibility
 
