@@ -5,6 +5,7 @@ import SelectSearch from "react-select-search";
 
 import IconButton from "./IconButton";
 import CheckboxGroupEdit from "./CheckboxGroupEdit";
+import DropdownGroupEdit from "./DropdownGroupEdit";
 
 const FormInputEdit = (props) => {
   const { id, type, required, title, options } = props.section;
@@ -44,6 +45,9 @@ const FormInputEdit = (props) => {
         <div className={style.textInput}>
           <i className="icon-clock"></i>Date/time entry
         </div>
+      )}
+      {type === InputTypes.Dropdown && (
+        <DropdownGroupEdit options={options} onChange={onOptionsChange} />
       )}
       <div className={style.bottomToolbar}>
         <SelectSearch
