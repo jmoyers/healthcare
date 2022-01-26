@@ -15,6 +15,7 @@ const CheckboxGroupEdit = (props) => {
     console.log("value", value);
     const newOptions = [...options];
     newOptions[index] = value;
+    console.log(newOptions);
     onChange(newOptions);
   };
 

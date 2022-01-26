@@ -7,14 +7,10 @@ import IconButton from "./IconButton";
 import CheckboxGroupEdit from "./CheckboxGroupEdit";
 
 const FormInputEdit = (props) => {
-  const { id, type, required } = props.section;
-  const [title, setTitle] = useState(props.section.title);
-  const [options, setOptions] = useState(props.section.options || []);
+  const { id, type, required, title, options } = props.section;
   const { onClickDelete = () => {}, onChange = () => {} } = props;
 
   const onTitleChange = (e) => {
-    console.log("set title", e.target.value);
-    setTitle(e.target.value);
     onChange({ ...props.section, title: e.target.value });
   };
 
@@ -27,7 +23,7 @@ const FormInputEdit = (props) => {
   };
 
   const onOptionsChange = (newOptions) => {
-    setOptions(newOptions);
+    console.log("opt change", newOptions);
     onChange({ ...props.section, options: newOptions });
   };
 

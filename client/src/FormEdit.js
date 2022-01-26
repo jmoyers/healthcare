@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import style from "./FormEdit.module.scss";
 import cx from "classnames";
 import Button from "./Button";
@@ -36,6 +36,23 @@ const FormEdit = () => {
       mutate(form);
     }
   });
+
+  useEffect(() => {
+    let neededId = false;
+
+    if (status === "success") {
+      for (const [i, section] of form.sections.entries()) {
+        if (!section.id) {
+          section.id = nanoid();
+          neededId = true;
+        }
+      }
+    }
+
+    if (neededId) {
+      mutate(form);
+    }
+  }, [status, mutate, form]);
 
   const onChangeTitle = (e) => {
     mutate({

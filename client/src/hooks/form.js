@@ -39,7 +39,6 @@ function useFormMutation(id) {
     },
     onSettled: async (res) => {
       console.log("Settled", res.data);
-      queryClient.setQueryData(["form", res.data.id], res.data);
     },
   });
 }
