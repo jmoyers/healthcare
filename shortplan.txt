@@ -1,6 +1,3 @@
-* Create new form
-* Delete form functionality with modal
-* Round-trip form response to JSON server
-* Show reponses in a table
+* Show responses in a table
 * Create a home page for the app
 * Create a sign in page for the app
