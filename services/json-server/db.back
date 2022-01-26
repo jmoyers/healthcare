@@ -1,4 +1,69 @@
 {
+  "responses": [
+    {
+      "id": "ofe-Ql-11D6wkVavrIEpw",
+      "form_id": "t6jV4u1nvVlJ6nx1RHoGC",
+      "title": "Sunset Medical Intake Form",
+      "description": "A test form",
+      "sections": [
+        {
+          "title": "First Name",
+          "type": "SHORT_ANSWER",
+          "required": true,
+          "id": "73sDGBiCQiX2llmrMnk9M",
+          "answer": "This is a test answer"
+        },
+        {
+          "title": "Last Name",
+          "type": "SHORT_ANSWER",
+          "required": true,
+          "id": "GcSjGfCLbMxTYMEP5H4Ft",
+          "answer": "This is a test answer 2"
+        },
+        {
+          "title": "What is your reason for visit today?",
+          "type": "PARAGRAPH",
+          "required": true,
+          "id": "HS_uHkHwvbT_lOEfQnawB",
+          "answer": "This is a test answer 3"
+        },
+        {
+          "title": "Please select your preferred language:",
+          "type": "DROPDOWN",
+          "required": true,
+          "options": [
+            "English",
+            "Spanish"
+          ],
+          "id": "s6ejYzNH8bMOBd_-4GmcK",
+          "answer": "Spanish"
+        },
+        {
+          "title": "Please choose a desired date for visit:",
+          "type": "DATETIME",
+          "required": true,
+          "id": "_NbSt7iQmLpQCEXyMggEc",
+          "answer": "Wed Jan 26 2022 14:59:04 GMT-0800 (Pacific Standard Time)"
+        },
+        {
+          "title": "Please indicate any conditions that you have had or currently have:",
+          "type": "CHECKBOX_GROUP",
+          "required": true,
+          "options": [
+            "headaches/migraine",
+            "allergies/sensitivities",
+            "arthirtis/tendonitis",
+            "cancer/tumors"
+          ],
+          "id": "9zCLMT4q1sloldRHng7fu",
+          "answer": [
+            "allergies/sensitivities",
+            "arthirtis/tendonitis"
+          ]
+        }
+      ]
+    }
+  ],
   "forms": [
     {
       "id": "t6jV4u1nvVlJ6nx1RHoGC",
@@ -34,7 +99,7 @@
           "id": "s6ejYzNH8bMOBd_-4GmcK"
         },
         {
-          "title": "Please choose a desired date for visit:",
+          "title": "Please choose a desired date for an appointment:",
           "type": "DATETIME",
           "required": true,
           "id": "_NbSt7iQmLpQCEXyMggEc"

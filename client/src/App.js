@@ -13,8 +13,10 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import MedscribeIntake from "./MedscribeIntake";
 import FormEdit from "./FormEdit";
 import Header from "./Header";
-import { QueryClient, QueryClientProvider } from "react-query";
 import FormList from "./FormList";
+import ResponseList from "./ResponseList";
+
+import { QueryClient, QueryClientProvider } from "react-query";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -26,6 +28,7 @@ const App = () => (
           <Route path="/form/:id/edit" element={<FormEdit />} />
           <Route path="/form/:id/respond" element={<MedscribeIntake />} />
           <Route path="/forms" element={<FormList />} />
+          <Route path="/responses" element={<ResponseList />} />
         </Routes>
       </div>
     </BrowserRouter>
