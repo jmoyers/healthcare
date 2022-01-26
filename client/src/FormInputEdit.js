@@ -1,11 +1,12 @@
-import { InputTypes } from "./hooks/form";
+import { InputTypes, InputPrettyNames } from "./hooks/form";
 import style from "./FormInputEdit.module.scss";
 import SelectSearch from "react-select-search";
 
 import IconButton from "./IconButton";
+import CheckboxGroupEdit from "./CheckboxGroupEdit";
 
 const FormInputEdit = (props) => {
-  const { type, required, title, id } = props.section;
+  const { id, type, title, required, options = [] } = props.section;
   const { onClickDelete = () => {}, onChange = () => {} } = props;
 
   const onTitleChange = (e) => {
@@ -20,28 +21,10 @@ const FormInputEdit = (props) => {
     onChange({ ...props.section, type: value });
   };
 
-  const questionTypes = [
-    {
-      name: "Short answer",
-      value: InputTypes.ShortAnswer,
-    },
-    {
-      name: "Paragraph",
-      value: InputTypes.Paragraph,
-    },
-    {
-      name: "Checkbox Group",
-      value: InputTypes.CheckboxGroup,
-    },
-    {
-      name: "Dropdown",
-      value: InputTypes.Dropdown,
-    },
-    {
-      name: "Date/Time",
-      value: InputTypes.DateTime,
-    },
-  ];
+  const onOptionsChange = (newOptions) => {
+    console.log("onOptionsChange", newOptions);
+    onChange({ ...props.section, options: newOptions });
+  };
 
   return (
     <div className={style.formSection}>
@@ -53,9 +36,12 @@ const FormInputEdit = (props) => {
       {type === InputTypes.Paragraph && (
         <div className={style.textInput}>Long answer text</div>
       )}
+      {type === InputTypes.CheckboxGroup && (
+        <CheckboxGroupEdit options={options} onChange={onOptionsChange} />
+      )}
       <div className={style.bottomToolbar}>
         <SelectSearch
-          options={questionTypes}
+          options={InputPrettyNames}
           value={type}
           name="questionType"
           onChange={onSelectChange}

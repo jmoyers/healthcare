@@ -1,0 +1,19 @@
+@import "variables";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  background-color: white;
+  border: 1px solid $color-border;
+  margin-top: 2rem;
+}
+
+.checkbox {
+  width: 5rem;
+}
+
+.name {
+  width: 80%;
+}

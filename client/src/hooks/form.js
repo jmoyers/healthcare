@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import axios from "axios";
 
-const API_BASE = "http://172.26.127.134:3001";
+const API_BASE = "http://localhost:3001";
 
 function useForm(id) {
   return useQuery(["form", id], async () => {
@@ -43,4 +43,27 @@ const InputTypes = {
   DateTime: "DATETIME",
 };
 
-export { useForm, useForms, useFormMutation, InputTypes };
+const InputPrettyNames = [
+  {
+    name: "Short answer",
+    value: InputTypes.ShortAnswer,
+  },
+  {
+    name: "Paragraph",
+    value: InputTypes.Paragraph,
+  },
+  {
+    name: "Checkbox Group",
+    value: InputTypes.CheckboxGroup,
+  },
+  {
+    name: "Dropdown",
+    value: InputTypes.Dropdown,
+  },
+  {
+    name: "Date/Time",
+    value: InputTypes.DateTime,
+  },
+];
+
+export { useForm, useForms, useFormMutation, InputTypes, InputPrettyNames };
