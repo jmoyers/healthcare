@@ -1,5 +1,6 @@
-import { useForms, useFormDelete } from "./hooks/form";
+import { useForms, useFormDelete, useFormCreate } from "./hooks/form";
 import { useNavigate } from "react-router-dom";
+import { nanoid } from "nanoid";
 
 import style from "./FormList.module.scss";
 import cx from "classnames";
@@ -9,7 +10,8 @@ import Button from "./Button";
 const FormList = () => {
   const { status, data: forms } = useForms();
   const navigate = useNavigate();
-  const { mutate } = useFormDelete();
+  const { mutate: deleteForm } = useFormDelete();
+  const { mutate: createForm } = useFormCreate();
 
   const onResponsesClick = (id) => {
     navigate(`/form/${id}/responses`);
@@ -20,7 +22,24 @@ const FormList = () => {
   };
 
   const onDeleteClick = (id) => {
-    mutate(id);
+    deleteForm(id);
+  };
+
+  const onCreateFormClick = () => {
+    createForm(
+      {
+        id: nanoid(),
+        title: "A new form",
+        description: "A new form description",
+        sections: [],
+      },
+      {
+        onSuccess: (res) => {
+          console.log("success", res.data);
+          navigate(`/form/${res.data.id}/edit`);
+        },
+      }
+    );
   };
 
   return (
@@ -57,6 +76,11 @@ const FormList = () => {
               </div>
             </div>
           ))}
+      </div>
+      <div className={style.controlsContainer}>
+        <Button type="primary" icon="plus" onClick={onCreateFormClick}>
+          Create New Form
+        </Button>
       </div>
     </div>
   );

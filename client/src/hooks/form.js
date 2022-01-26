@@ -50,6 +50,34 @@ function useFormDelete() {
   });
 }
 
+function useFormCreate() {
+  const queryClient = useQueryClient();
+
+  const req = AwesomeDebouncePromise(
+    (form) => axios.post(`${API_BASE}/forms`, form),
+    1000
+  );
+
+  return useMutation((form) => req(form), {
+    onMutate: async (form) => {
+      await queryClient.cancelQueries(["forms"]);
+      const previousValue = queryClient.getQueryData(["forms"]);
+      console.log("Optimistic create form", form);
+      const newForms = [...previousValue];
+      newForms.push(form);
+      queryClient.setQueryData(["forms"], newForms);
+      return previousValue;
+    },
+    onError: (err, variables, previousValue) => {
+      console.error("Mutation error", err);
+      queryClient.setQueryData(["forms"], previousValue);
+    },
+    onSettled: async (res) => {
+      console.log("Settled", res.data);
+    },
+  });
+}
+
 function useFormMutation(id) {
   const queryClient = useQueryClient();
 
@@ -113,6 +141,7 @@ export {
   useForms,
   useFormMutation,
   useFormDelete,
+  useFormCreate,
   InputTypes,
   InputPrettyNames,
 };
