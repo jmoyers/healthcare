@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx json-server --watch db.json --host localhost --port 3001",
+    "reset": "cp db.back db.json"
   },
   "author": "Joshua Moyers",
   "license": "UNLICENSED",

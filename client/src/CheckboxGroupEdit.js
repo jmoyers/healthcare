@@ -1,5 +1,6 @@
 import style from "./CheckboxGroupEdit.module.scss";
 import IconButton from "./IconButton";
+import Button from "./Button";
 
 const CheckboxGroupEdit = (props) => {
   const { options = [], onChange = () => {} } = props;
@@ -15,6 +16,11 @@ const CheckboxGroupEdit = (props) => {
     const newOptions = [...options];
     newOptions[index] = value;
     onChange(newOptions);
+  };
+
+  const addOption = () => {
+    options.push("");
+    onChange(options);
   };
 
   return (
@@ -34,6 +40,11 @@ const CheckboxGroupEdit = (props) => {
           ></IconButton>
         </div>
       ))}
+      <div className={style.addButton}>
+        <Button icon="plus" onClick={addOption}>
+          Add Option
+        </Button>
+      </div>
     </div>
   );
 };

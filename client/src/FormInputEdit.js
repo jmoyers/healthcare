@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { InputTypes, InputPrettyNames } from "./hooks/form";
 import style from "./FormInputEdit.module.scss";
 import SelectSearch from "react-select-search";
@@ -6,10 +7,14 @@ import IconButton from "./IconButton";
 import CheckboxGroupEdit from "./CheckboxGroupEdit";
 
 const FormInputEdit = (props) => {
-  const { id, type, title, required, options = [] } = props.section;
+  const { id, type, required } = props.section;
+  const [title, setTitle] = useState(props.section.title);
+  const [options, setOptions] = useState(props.section.options || []);
   const { onClickDelete = () => {}, onChange = () => {} } = props;
 
   const onTitleChange = (e) => {
+    console.log("set title", e.target.value);
+    setTitle(e.target.value);
     onChange({ ...props.section, title: e.target.value });
   };
 
@@ -22,7 +27,7 @@ const FormInputEdit = (props) => {
   };
 
   const onOptionsChange = (newOptions) => {
-    console.log("onOptionsChange", newOptions);
+    setOptions(newOptions);
     onChange({ ...props.section, options: newOptions });
   };
 

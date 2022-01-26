@@ -37,17 +37,19 @@ const FormEdit = () => {
     }
   });
 
-  const onChangeTitle = (e) =>
+  const onChangeTitle = (e) => {
     mutate({
       ...form,
       title: e.target.value,
     });
+  };
 
-  const onChangeDesc = (e) =>
+  const onChangeDesc = (e) => {
     mutate({
       ...form,
       description: e.target.value,
     });
+  };
 
   const onClickAdd = () => {
     const newForm = {

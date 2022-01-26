@@ -1,4 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
+import AwesomeDebouncePromise from "awesome-debounce-promise";
 import axios from "axios";
 
 const API_BASE = "http://localhost:3001";
@@ -19,17 +20,26 @@ function useForms() {
 
 function useFormMutation(id) {
   const queryClient = useQueryClient();
-  return useMutation((form) => axios.put(`${API_BASE}/forms/${id}`, form), {
+
+  const put = AwesomeDebouncePromise((form) =>
+    axios.put(`${API_BASE}/forms/${form.id}`, form)
+  );
+
+  return useMutation(put, {
     onMutate: async (form) => {
       await queryClient.cancelQueries(["form", id]);
       const previousValue = queryClient.getQueryData(["form", id]);
-      queryClient.setQueryData(["form", id], (old) => form);
+      console.log("Optimistic update", form);
+      queryClient.setQueryData(["form", id], form);
       return previousValue;
     },
-    onError: (err, variables, previousValue) =>
-      queryClient.setQueryData(["form", id], previousValue),
-    onSettled: () => {
-      queryClient.invalidateQueries(["form", id]);
+    onError: (err, variables, previousValue) => {
+      console.error("Mutation error", err);
+      queryClient.setQueryData(["form", previousValue.id], previousValue);
+    },
+    onSettled: async (res) => {
+      console.log("Settled", res.data);
+      queryClient.setQueryData(["form", res.data.id], res.data);
     },
   });
 }

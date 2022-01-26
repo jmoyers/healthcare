@@ -2,20 +2,23 @@
   "forms": [
     {
       "id": "t6jV4u1nvVlJ6nx1RHoGC",
-      "title": "test form title",
-      "description": "A test form description",
+      "title": "testing and here we go",
+      "description": "A test form",
       "sections": [
+        {
+          "title": "First Name",
+          "type": "SHORT_ANSWER",
+          "required": true
+        },
         {
           "title": "Last Name",
           "type": "SHORT_ANSWER",
-          "required": true,
-          "id": "9F3TxQOgkzKrm6rhNfZto"
+          "required": true
         },
         {
           "title": "What is your reason for visit today?",
           "type": "PARAGRAPH",
-          "required": true,
-          "id": "aS5R25qD_QTrmKRZAeJcb"
+          "required": true
         },
         {
           "title": "Please select your preferred language:",
@@ -24,14 +27,12 @@
           "options": [
             "English",
             "Spanish"
-          ],
-          "id": "L5ZOgxnO01xZoEsx5bNFI"
+          ]
         },
         {
           "title": "Please choose a desired date for visit:",
           "type": "DATE_TIME",
-          "required": true,
-          "id": "aKJgDeqI7cIn836KLd_yr"
+          "required": true
         },
         {
           "title": "Please indicate any conditions that you have had or currently have:",
@@ -40,29 +41,9 @@
           "options": [
             "headaches/migraine",
             "allergies/sensitivities",
-            "arthirtis/tendonitistestestset"
-          ],
-          "id": "akqIMBbQE1FfYIWfpNlbG"
-        },
-        {
-          "id": "853zrIBOg_c4VPBtPXRav",
-          "title": "Test test test test",
-          "type": "SHORT_ANSWER",
-          "required": false
-        },
-        {
-          "id": "CN-r_dL8jZSO6uCuMdtsH",
-          "title": "",
-          "type": "SHORT_ANSWER",
-          "required": false,
-          "new": false
-        },
-        {
-          "id": "GYocKZacLm0j2yOnKCMeD",
-          "title": "Different title",
-          "type": "PARAGRAPH",
-          "required": false,
-          "new": false
+            "arthirtis/tendonitis",
+            "cancer/tumors"
+          ]
         }
       ]
     },
