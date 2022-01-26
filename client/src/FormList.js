@@ -1,30 +1,34 @@
-import { useForms } from "./hooks/form";
+import { useForms, useFormDelete } from "./hooks/form";
 import { useNavigate } from "react-router-dom";
 
 import style from "./FormList.module.scss";
 import cx from "classnames";
 
 import Button from "./Button";
-import IconButton from "./IconButton";
 
 const FormList = () => {
   const { status, data: forms } = useForms();
   const navigate = useNavigate();
+  const { mutate } = useFormDelete();
 
   const onResponsesClick = (id) => {
     navigate(`/form/${id}/responses`);
   };
+
   const onEditClick = (id) => {
     navigate(`/form/${id}/edit`);
   };
-  const onDeleteClick = (id) => {};
+
+  const onDeleteClick = (id) => {
+    mutate(id);
+  };
 
   return (
     <div className={style.container}>
       <div className={style.table}>
         {status === "success" &&
           forms.map((form) => (
-            <div className={style.row}>
+            <div className={style.row} key={form.id}>
               <div className={cx(style.cell, style.title)}>
                 <i className={cx(style.formIcon, "icon-folder")}></i>
                 {form.title}

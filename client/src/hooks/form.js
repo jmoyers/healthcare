@@ -18,11 +18,44 @@ function useForms() {
   });
 }
 
+function useFormDelete() {
+  const queryClient = useQueryClient();
+
+  const req = AwesomeDebouncePromise(
+    (id) => axios.delete(`${API_BASE}/forms/${id}`),
+    1000
+  );
+
+  return useMutation((id) => req(id), {
+    onMutate: async (id) => {
+      await queryClient.cancelQueries(["forms"]);
+      const previousValue = queryClient.getQueryData(["forms"]);
+      console.log("Optimistic delete", id);
+      const newForms = [...previousValue];
+      for (const [i, form] of newForms.entries()) {
+        if (form.id === id) {
+          newForms.splice(i);
+        }
+      }
+      queryClient.setQueryData(["forms"], newForms);
+      return previousValue;
+    },
+    onError: (err, variables, previousValue) => {
+      console.error("Mutation error", err);
+      queryClient.setQueryData(["forms"], previousValue);
+    },
+    onSettled: async (res) => {
+      console.log("Settled", res.data);
+    },
+  });
+}
+
 function useFormMutation(id) {
   const queryClient = useQueryClient();
 
-  const put = AwesomeDebouncePromise((form) =>
-    axios.put(`${API_BASE}/forms/${form.id}`, form)
+  const put = AwesomeDebouncePromise(
+    (form) => axios.put(`${API_BASE}/forms/${form.id}`, form),
+    1000
   );
 
   return useMutation(put, {
@@ -75,4 +108,11 @@ const InputPrettyNames = [
   },
 ];
 
-export { useForm, useForms, useFormMutation, InputTypes, InputPrettyNames };
+export {
+  useForm,
+  useForms,
+  useFormMutation,
+  useFormDelete,
+  InputTypes,
+  InputPrettyNames,
+};
