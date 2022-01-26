@@ -14,6 +14,7 @@ import MedscribeIntake from "./MedscribeIntake";
 import FormEdit from "./FormEdit";
 import Header from "./Header";
 import { QueryClient, QueryClientProvider } from "react-query";
+import FormList from "./FormList";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -24,6 +25,7 @@ const App = () => (
         <Routes>
           <Route path="/form/:id/edit" element={<FormEdit />} />
           <Route path="/form/:id/respond" element={<MedscribeIntake />} />
+          <Route path="/forms" element={<FormList />} />
         </Routes>
       </div>
     </BrowserRouter>
