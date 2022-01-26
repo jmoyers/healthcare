@@ -31,7 +31,10 @@
           "title": "Please select your preferred language:",
           "type": "DROPDOWN",
           "required": true,
-          "options": ["English", "Spanish"],
+          "options": [
+            "English",
+            "Spanish"
+          ],
           "id": "s6ejYzNH8bMOBd_-4GmcK",
           "answer": "Spanish"
         },
@@ -53,7 +56,10 @@
             "cancer/tumors"
           ],
           "id": "9zCLMT4q1sloldRHng7fu",
-          "answer": ["allergies/sensitivities", "arthirtis/tendonitis"]
+          "answer": [
+            "allergies/sensitivities",
+            "arthirtis/tendonitis"
+          ]
         }
       ]
     }
@@ -86,11 +92,14 @@
           "title": "Please select your preferred language:",
           "type": "DROPDOWN",
           "required": true,
-          "options": ["English", "Spanish"],
+          "options": [
+            "English",
+            "Spanish"
+          ],
           "id": "s6ejYzNH8bMOBd_-4GmcK"
         },
         {
-          "title": "Please choose a desired date for visit:",
+          "title": "Please choose a desired date for an appointment:",
           "type": "DATETIME",
           "required": true,
           "id": "_NbSt7iQmLpQCEXyMggEc"

@@ -17,12 +17,12 @@ browse around and check out the code.
 - [x] React-based front-end with scss
   - [x] View individual form
   - [x] Edit invididual form
-  - [ ] View list of forms
+  - [x] View list of forms
   - [ ] View list of responses
   - [ ] View individual reponse
 - [x] JSONServer prototype back-end
   - [x] Forms
-  - [ ] Form responses
+  - [x] Form responses
 - [ ] Node.js microservices to replace JSONServer
   - [ ] Forms
   - [ ] Form responses
@@ -30,4 +30,4 @@ browse around and check out the code.
   - [ ] serverless framework deploy on AWS via lambdas
   - [ ] DynamoDB back-end, local dynamodb for dev
 
-![screenshot form edit](screenshot.png)
+![wip screencast](medscribe.gif)
