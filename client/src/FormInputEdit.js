@@ -40,6 +40,11 @@ const FormInputEdit = (props) => {
       {type === InputTypes.CheckboxGroup && (
         <CheckboxGroupEdit options={options} onChange={onOptionsChange} />
       )}
+      {type === InputTypes.DateTime && (
+        <div className={style.textInput}>
+          <i className="icon-clock"></i>Date/time entry
+        </div>
+      )}
       <div className={style.bottomToolbar}>
         <SelectSearch
           options={InputPrettyNames}

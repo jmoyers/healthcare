@@ -2,7 +2,7 @@ import React from "react";
 
 import "normalize.css";
 import "./App.scss";
-import "./icons/css/entypo.css";
+import "./icons/css/fontello.css";
 
 import styles from "./Home.module.scss";
 import "react-select-search/style.css";

@@ -1,5 +1,5 @@
 {
-  "name": "entypo",
+  "name": "",
   "css_prefix_text": "icon-",
   "css_use_suffix": false,
   "hinting": true,
@@ -7,243 +7,51 @@
   "ascent": 850,
   "glyphs": [
     {
-      "uid": "884cfc3e6e2d456dd2a2ca0dbb9e6337",
-      "css": "left-open-big",
+      "uid": "8663320a860b00f26e94d3d15c9ba99a",
+      "css": "clock",
       "code": 59392,
-      "src": "entypo"
-    },
-    {
-      "uid": "7132e1233bc16cd1b6efe7e29d3613a5",
-      "css": "linkedin",
-      "code": 62232,
-      "src": "entypo"
-    },
-    {
-      "uid": "d94334f23acba022bfd68e49d76b31bb",
-      "css": "github",
-      "code": 62208,
-      "src": "entypo"
-    },
-    {
-      "uid": "ef74ff62feda486fd414410e782b598a",
-      "css": "graduation-cap",
-      "code": 59393,
-      "src": "entypo"
-    },
-    {
-      "uid": "7d90b6cb3f3783170a96b09e5f0de6d5",
-      "css": "chart-bar",
-      "code": 59394,
-      "src": "entypo"
-    },
-    {
-      "uid": "4bcb3aaa98736be3027bef7c76c55021",
-      "css": "flow-branch",
-      "code": 59395,
-      "src": "entypo"
-    },
-    {
-      "uid": "bc64550dd022ce21604f97309b346cea",
-      "css": "cog",
-      "code": 59396,
-      "src": "entypo"
-    },
-    {
-      "uid": "0ccb084ddeeae372673793ed0b45bb4a",
-      "css": "folder",
-      "code": 59397,
-      "src": "entypo"
-    },
-    {
-      "uid": "875ab0f6d417223f6ec76ff7f0a4baed",
-      "css": "tag",
-      "code": 59399,
-      "src": "entypo"
-    },
-    {
-      "uid": "005a38f6af74b31aeb817fedb09d2175",
-      "css": "keyboard",
-      "code": 59400,
-      "src": "entypo"
-    },
-    {
-      "uid": "3a3f65b92c9b2fcbb3a8dcd0d42ee806",
-      "css": "resize-full",
-      "code": 59401,
-      "src": "entypo"
-    },
-    {
-      "uid": "108c8ac13badc00ce66da014436e6eb1",
-      "css": "resize-small",
-      "code": 59402,
-      "src": "entypo"
-    },
-    {
-      "uid": "7ad4d2306ebda8452e5e3eff3cd8241c",
-      "css": "thumbs-up",
-      "code": 59403,
-      "src": "entypo"
-    },
-    {
-      "uid": "429fba993b729174468a9493613ad1ba",
-      "css": "thumbs-down",
-      "code": 59404,
-      "src": "entypo"
-    },
-    {
-      "uid": "b6fc2f656ef87275889422e19550680a",
-      "css": "reply",
-      "code": 59405,
-      "src": "entypo"
-    },
-    {
-      "uid": "14017aae737730faeda4a6fd8fb3a5f0",
-      "css": "check",
-      "code": 59406,
-      "src": "entypo"
-    },
-    {
-      "uid": "c709da589c923ba3c2ad48d9fc563e93",
-      "css": "cancel",
-      "code": 59407,
-      "src": "entypo"
-    },
-    {
-      "uid": "3def559c3c39b8500882e02892b7daa8",
-      "css": "picture",
-      "code": 59408,
-      "src": "entypo"
-    },
-    {
-      "uid": "bbd66ef66bb8fa9edde54d9a90b89150",
-      "css": "user",
-      "code": 59409,
-      "src": "entypo"
-    },
-    {
-      "uid": "0eabe5f8d71cc838484ff39436426d2d",
-      "css": "heart",
-      "code": 59410,
-      "src": "entypo"
-    },
-    {
-      "uid": "d18071bbf8f0a8cec8d1f556c91c6af0",
-      "css": "heart-empty",
-      "code": 59411,
-      "src": "entypo"
-    },
-    {
-      "uid": "2cfb3f2b46b34a1790aec0aa846297b6",
-      "css": "menu",
-      "code": 59412,
-      "src": "entypo"
-    },
-    {
-      "uid": "3626b3f3a0b284e7f4166b815719aece",
-      "css": "list",
-      "code": 59413,
-      "src": "entypo"
-    },
-    {
-      "uid": "97bd5542ed3e143d2ee9b60e14487615",
-      "css": "list-add",
-      "code": 59414,
       "src": "entypo"
     },
     {
       "uid": "70370693ada58ef0a60fa0984fe8d52a",
       "css": "plus",
-      "code": 59415,
-      "src": "entypo"
-    },
-    {
-      "uid": "3a230e539a4f3b904debd04c6c155034",
-      "css": "help",
-      "code": 59416,
-      "src": "entypo"
-    },
-    {
-      "uid": "de9a631a7d18106aea1c89ba51b1990a",
-      "css": "help-circled",
-      "code": 59417,
-      "src": "entypo"
-    },
-    {
-      "uid": "004882ab2d5c418c5b2060e80596279b",
-      "css": "right-open-big",
-      "code": 59418,
-      "src": "entypo"
-    },
-    {
-      "uid": "922ab2cb66943a83de969990289ef1dc",
-      "css": "docs",
-      "code": 59419,
-      "src": "entypo"
-    },
-    {
-      "uid": "815503841e980c848f55e0271deacead",
-      "css": "link",
-      "code": 59398,
+      "code": 59393,
       "src": "entypo"
     },
     {
       "uid": "2626e3a1bbcd90e45849af3b58a1d594",
       "css": "trash",
-      "code": 59420,
+      "code": 59394,
       "src": "entypo"
     },
     {
-      "uid": "457c8e2b305e7af74c1be4f07a01ca92",
-      "css": "vcard",
-      "code": 59421,
+      "uid": "6274e0601f2feef7eced89146e708de0",
+      "css": "user-add",
+      "code": 59395,
       "src": "entypo"
     },
     {
-      "uid": "b6f32db98a3de777f5ae3005191b1831",
-      "css": "code",
-      "code": 59422,
+      "uid": "ecf8edb95c3f45eb433b4cce7ba9f740",
+      "css": "users",
+      "code": 59396,
       "src": "entypo"
     },
     {
-      "uid": "bcb868184ff9c35f8aef564f50c0d649",
-      "css": "feather",
-      "code": 59423,
+      "uid": "bbd66ef66bb8fa9edde54d9a90b89150",
+      "css": "user",
+      "code": 59397,
       "src": "entypo"
     },
     {
-      "uid": "7222571caa5c15f83dcfd447c58d68d9",
-      "css": "search",
-      "code": 59424,
+      "uid": "3def559c3c39b8500882e02892b7daa8",
+      "css": "picture",
+      "code": 59398,
       "src": "entypo"
     },
     {
-      "uid": "ae6336c46d73af999fe7460c089abb4d",
-      "css": "align-center",
-      "code": 59425,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "f4f0e849b805be1f6d76b65581cb3b8b",
-      "css": "align-left",
-      "code": 59426,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "e1e7306b47c3c5e6faecce9d32571381",
-      "css": "align-right",
-      "code": 59427,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "96ea1be71f597a5bdfc8f791ada4f651",
-      "css": "archive",
-      "code": 59428,
-      "src": "entypo"
-    },
-    {
-      "uid": "4a413ef43c364dafa42766e74c31bbca",
-      "css": "cc",
-      "code": 59429,
+      "uid": "c709da589c923ba3c2ad48d9fc563e93",
+      "css": "cancel",
+      "code": 59399,
       "src": "entypo"
     }
   ]

@@ -1,5 +1,3 @@
-* Create new form, CHECKBOX_GROUP
-* Create new form, DATE_TIME
 * Create new form, select
 * Show forms to edit in a table
 * Round-trip form response to JSON server

@@ -35,7 +35,7 @@
         },
         {
           "title": "Please choose a desired date for visit:",
-          "type": "DATE_TIME",
+          "type": "DATETIME",
           "required": true,
           "id": "_NbSt7iQmLpQCEXyMggEc"
         },
@@ -47,8 +47,7 @@
             "headaches/migraine",
             "allergies/sensitivities",
             "arthirtis/tendonitis",
-            "cancer/tumors",
-            "new/thing and stuff"
+            "cancer/tumors"
           ],
           "id": "9zCLMT4q1sloldRHng7fu"
         }
