@@ -78,7 +78,7 @@ function useResponseCreate() {
   });
 }
 
-function useResponseMutation(id) {
+function useResponseUpdate(id) {
   const queryClient = useQueryClient();
 
   const put = AwesomeDebouncePromise(
@@ -107,7 +107,7 @@ function useResponseMutation(id) {
 export {
   useResponse,
   useResponses,
-  useResponseMutation,
+  useResponseUpdate,
   useResponseDelete,
   useResponseCreate,
 };

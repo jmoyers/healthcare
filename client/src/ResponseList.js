@@ -8,12 +8,13 @@ import Button from "./Button";
 
 const ResponseList = () => {
   const { status, data: responses } = useResponses();
+
   const navigate = useNavigate();
 
   const { mutate: deleteResponse } = useResponseDelete();
 
   const onViewClick = (id) => {
-    navigate(`/response/${id}/view`);
+    navigate(`/response/${id}`);
   };
 
   const onDeleteClick = (id) => {

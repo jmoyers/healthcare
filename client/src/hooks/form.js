@@ -78,7 +78,7 @@ function useFormCreate() {
   });
 }
 
-function useFormMutation(id) {
+function useFormUpdate(id) {
   const queryClient = useQueryClient();
 
   const put = AwesomeDebouncePromise(
@@ -139,7 +139,7 @@ const InputPrettyNames = [
 export {
   useForm,
   useForms,
-  useFormMutation,
+  useFormUpdate,
   useFormDelete,
   useFormCreate,
   InputTypes,

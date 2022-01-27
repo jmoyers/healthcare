@@ -14,31 +14,60 @@ const toKey = (string) => {
   return camelcase(string).substring(0, 10);
 };
 
-const FormInput = ({ section }) => {
-  const { id, title, type, required, options } = section;
+const FormInput = (props) => {
+  const { id, title, type, required, options, answer } = props.section;
+  const { onAnswerChange = () => {} } = props;
 
-  console.log(section);
+  const onOptionChange = (value, selected) => {
+    const newAnswer = [...answer];
+
+    let index = newAnswer.indexOf(value);
+
+    if (selected && index === -1) {
+      newAnswer.push(value);
+    }
+
+    onAnswerChange(newAnswer);
+  };
+
+  const onChange = (e) => {
+    onAnswerChange(props.section, e.target.value);
+  };
 
   // lets provide a default id if none is pr
   if (type === InputTypes.ShortAnswer) {
     return (
       <fieldset>
         <label htmlFor={id}>{title}</label>
-        <input className={style.shortAnswer} id={id} />
+        <input
+          className={style.shortAnswer}
+          id={id}
+          value={answer}
+          onChange={onChange}
+        />
       </fieldset>
     );
   } else if (type === InputTypes.Paragraph) {
     return (
       <fieldset>
         <label htmlFor={id}>{title}</label>
-        <textarea className={style.paragraph} id={id} />
+        <textarea
+          className={style.paragraph}
+          id={id}
+          value={answer}
+          onChange={onChange}
+        />
       </fieldset>
     );
   } else if (type === InputTypes.Checkbox) {
     return (
       <CheckboxGroup title={title}>
         {options.map((option) => (
-          <CheckboxOption label={option} key={toKey(option)} />
+          <CheckboxOption
+            label={option}
+            key={toKey(option)}
+            onChange={onOptionChange}
+          />
         ))}
       </CheckboxGroup>
     );
@@ -53,7 +82,12 @@ const FormInput = ({ section }) => {
         <label htmlFor={id} className={style.dropdownLabel}>
           {title}
         </label>
-        <SelectSearch options={selectsearch_options} name={id} />
+        <SelectSearch
+          options={selectsearch_options}
+          name={id}
+          value={answer}
+          onChange={onChange}
+        />
       </fieldset>
     );
   } else if (type === InputTypes.DateTime) {
@@ -62,7 +96,7 @@ const FormInput = ({ section }) => {
         <label htmlFor={id} className={style.datetimeLabel}>
           {title}
         </label>
-        <Datetime />
+        <Datetime onChange={onChange} value={answer} />
       </fieldset>
     );
   }

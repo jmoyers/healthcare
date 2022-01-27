@@ -6,12 +6,12 @@ import FormInputEdit from "./FormInputEdit";
 import { useParams } from "react-router-dom";
 import { nanoid } from "nanoid";
 
-import { InputTypes, useForm, useFormMutation } from "./hooks/form";
+import { InputTypes, useForm, useFormUpdate } from "./hooks/form";
 
 const FormEdit = () => {
   const { id } = useParams();
   const { status, data: form } = useForm(id);
-  const { mutate } = useFormMutation(id);
+  const { mutate } = useFormUpdate(id);
 
   useLayoutEffect(() => {
     let wasNew = false;
