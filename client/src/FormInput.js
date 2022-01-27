@@ -15,7 +15,7 @@ const toKey = (string) => {
 };
 
 const FormInput = (props) => {
-  const { id, title, type, required, options, answer } = props.section;
+  const { id, title, type, required, options, answer = "" } = props.section;
   const { onAnswerChange = () => {} } = props;
 
   const onOptionChange = (e) => {

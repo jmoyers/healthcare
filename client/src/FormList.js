@@ -1,6 +1,7 @@
 import { useForms, useFormDelete, useFormCreate } from "./hooks/form";
 import { useNavigate } from "react-router-dom";
 import { nanoid } from "nanoid";
+import copy from "clipboard-copy";
 
 import style from "./FormList.module.scss";
 import cx from "classnames";
@@ -12,6 +13,12 @@ const FormList = () => {
   const navigate = useNavigate();
   const { mutate: deleteForm } = useFormDelete();
   const { mutate: createForm } = useFormCreate();
+
+  const onLinkClick = async (id) => {
+    await copy(
+      `${window.location.protocol}//${window.location.host}/respond/${id}/new`
+    );
+  };
 
   const onResponsesClick = (id) => {
     navigate(`/form/${id}/responses`);
@@ -58,6 +65,9 @@ const FormList = () => {
                   onClick={() => onResponsesClick(form.id)}
                 >
                   Responses
+                </Button>
+                <Button icon="users" onClick={() => onLinkClick(form.id)}>
+                  Link
                 </Button>
                 <Button
                   icon="cog"

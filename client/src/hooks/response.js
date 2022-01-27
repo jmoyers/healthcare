@@ -53,29 +53,27 @@ function useResponseDelete() {
 function useResponseCreate() {
   const queryClient = useQueryClient();
 
-  const req = AwesomeDebouncePromise(
+  return useMutation(
     (response) => axios.post(`${API_BASE}/responses`, response),
-    1000
+    {
+      onMutate: async (response) => {
+        await queryClient.cancelQueries(["responses"]);
+        const previousValue = queryClient.getQueryData(["responses"]);
+        console.log("Optimistic create response", response);
+        const newResponses = previousValue ? [...previousValue] : [];
+        newResponses.push(response);
+        queryClient.setQueryData(["responses"], newResponses);
+        return previousValue;
+      },
+      onError: (err, variables, previousValue) => {
+        console.error("Mutation error", err);
+        queryClient.setQueryData(["responses"], previousValue);
+      },
+      onSettled: async (res) => {
+        console.log("Settled", res.data);
+      },
+    }
   );
-
-  return useMutation((response) => req(response), {
-    onMutate: async (response) => {
-      await queryClient.cancelQueries(["responses"]);
-      const previousValue = queryClient.getQueryData(["responses"]);
-      console.log("Optimistic create response", response);
-      const newResponses = [...previousValue];
-      newResponses.push(response);
-      queryClient.setQueryData(["responses"], newResponses);
-      return previousValue;
-    },
-    onError: (err, variables, previousValue) => {
-      console.error("Mutation error", err);
-      queryClient.setQueryData(["responses"], previousValue);
-    },
-    onSettled: async (res) => {
-      console.log("Settled", res.data);
-    },
-  });
 }
 
 function useResponseUpdate(id) {
