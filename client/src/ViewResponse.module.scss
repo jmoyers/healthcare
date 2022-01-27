@@ -10,7 +10,6 @@
 
 .intake {
   width: 80rem;
-  background-color: whitesmoke;
   margin-top: 2rem;
   font-size: 2rem;
   box-shadow: $box-shadow-light;
@@ -25,16 +24,17 @@
 .titleContainer {
   padding: 1.5rem 2rem;
 
-  background-color: skyblue;
+  background-color: $color-button-primary;
   line-height: 300%;
-  margin-bottom: 2rem;
 }
 
 .descriptionContainer {
   padding-left: 2rem;
   padding-right: 2rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin: 0;
+  background-color: whitesmoke;
 }
 
 .description {

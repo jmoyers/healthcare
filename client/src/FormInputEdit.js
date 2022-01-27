@@ -30,7 +30,7 @@ const FormInputEdit = (props) => {
 
   return (
     <div className={style.formSection}>
-      <h2>Question</h2>
+      <h2>Section</h2>
       <input type="text" value={title} onChange={onTitleChange}></input>
       {type === InputTypes.ShortAnswer && (
         <div className={style.textInput}>Short answer text</div>
@@ -56,18 +56,20 @@ const FormInputEdit = (props) => {
           name="questionType"
           onChange={onSelectChange}
         ></SelectSearch>
-        <fieldset className={style.reqFieldset}>
-          <label className={style.reqLabel} htmlFor="required">
-            Required
-          </label>
-          <input
-            type="checkbox"
-            id="required"
-            className={style.reqCheckbox}
-            checked={required}
-            onChange={onRequiredChange}
-          />
-        </fieldset>
+        {type !== InputTypes.Header && (
+          <fieldset className={style.reqFieldset}>
+            <label className={style.reqLabel} htmlFor="required">
+              Required
+            </label>
+            <input
+              type="checkbox"
+              id="required"
+              className={style.reqCheckbox}
+              checked={required}
+              onChange={onRequiredChange}
+            />
+          </fieldset>
+        )}
         <IconButton
           size="md"
           icon="trash"

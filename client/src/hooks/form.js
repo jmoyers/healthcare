@@ -105,6 +105,7 @@ function useFormUpdate(id) {
 }
 
 const InputTypes = {
+  Header: "HEADER",
   ShortAnswer: "SHORT_ANSWER",
   Paragraph: "PARAGRAPH",
   Checkbox: "CHECKBOX",
@@ -117,6 +118,10 @@ const InputPrettyNames = [
   {
     name: "Short answer",
     value: InputTypes.ShortAnswer,
+  },
+  {
+    name: "Header",
+    value: InputTypes.Header,
   },
   {
     name: "Paragraph",

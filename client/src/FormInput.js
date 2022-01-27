@@ -40,8 +40,11 @@ const FormInput = (props) => {
     }
   };
 
-  // lets provide a default id if none is pr
-  if (type === InputTypes.ShortAnswer) {
+  console.log(props.section);
+
+  if (type === InputTypes.Header) {
+    return <div className={style.sectionHeader}>{title}</div>;
+  } else if (type === InputTypes.ShortAnswer) {
     return (
       <fieldset>
         <label htmlFor={id}>{title}</label>

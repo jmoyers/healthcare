@@ -153,7 +153,7 @@ const FormEdit = () => {
       </div>
       <div className={style.controlsContainer}>
         <Button type="primary" icon="plus" onClick={onClickAdd}>
-          Add Question
+          Add Section
         </Button>
       </div>
     </div>

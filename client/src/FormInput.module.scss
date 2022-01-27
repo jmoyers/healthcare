@@ -1,5 +1,12 @@
 @import "variables";
 
+.sectionHeader {
+  font-size: 3rem;
+  color: $color-button-primary;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
 .shortAnswer {
   margin: $input-margin;
 }
