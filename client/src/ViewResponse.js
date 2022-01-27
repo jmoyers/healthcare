@@ -31,6 +31,7 @@ const ViewResponse = () => {
       {status === "success" && (
         <div className={style.intake}>
           <h1>{response.title}</h1>
+          <div className={style.description}>{response.description}</div>
           {response.sections.map((section) => (
             <FormInput
               section={section}

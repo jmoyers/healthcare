@@ -1,4 +1,9 @@
-* Create a modal popover so that we can do confirmation dialogs
-* Make it so you can sign in
 * Do a tablet pass
 * Do a phone pass
+* Create a component for sign-in
+* Create a component for account creation
+* Make the right nav of the header disappear unless you're a form admin
+* Hide the header on form responses by default
+* Show the header on form responses if coming from the ResponseList
+* Create a basic authentication service
+* Create a modal popover so that we can do confirmation dialogs
