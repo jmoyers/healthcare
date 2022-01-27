@@ -8,7 +8,7 @@ function Header() {
 
   return (
     <div className={styles.header}>
-      <div className={styles.siteName}>Medscribe</div>
+      <div className={styles.siteName}>🩺 Medscribe</div>
       <div className={styles.rightNav}>
         {!signedInUser ? (
           <>
