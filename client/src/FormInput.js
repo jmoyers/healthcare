@@ -31,7 +31,13 @@ const FormInput = (props) => {
   };
 
   const onChange = (e) => {
-    onAnswerChange(props.section, e.target.value);
+    if (e.target) {
+      onAnswerChange(props.section, e.target.value);
+    } else if (e.constructor.name === "String") {
+      onAnswerChange(props.section, e);
+    } else if (e.constructor.name === "Moment") {
+      onAnswerChange(props.section, e.toDate().toString());
+    }
   };
 
   // lets provide a default id if none is pr
@@ -85,7 +91,7 @@ const FormInput = (props) => {
         <SelectSearch
           options={selectsearch_options}
           name={id}
-          value={answer}
+          value={toKey(answer)}
           onChange={onChange}
         />
       </fieldset>
@@ -96,7 +102,7 @@ const FormInput = (props) => {
         <label htmlFor={id} className={style.datetimeLabel}>
           {title}
         </label>
-        <Datetime onChange={onChange} value={answer} />
+        <Datetime onChange={onChange} value={new Date(answer)} />
       </fieldset>
     );
   }
