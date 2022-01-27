@@ -1,5 +1,3 @@
-* Create a page where you can edit a responses
-* Create a route where it creates a new response and focuses first input
 * Create a modal popover so that we can do confirmation dialogs
 * Make it so you can sign in
 * Do a tablet pass

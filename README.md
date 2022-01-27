@@ -18,8 +18,9 @@ browse around and check out the code.
   - [x] View individual form
   - [x] Edit invididual form
   - [x] View list of forms
-  - [ ] View list of responses
-  - [ ] View individual reponse
+  - [x] View list of responses
+  - [x] View individual reponse
+  - [ ] User authentication and sign-in
 - [x] JSONServer prototype back-end
   - [x] Forms
   - [x] Form responses
