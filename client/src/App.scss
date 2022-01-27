@@ -52,7 +52,6 @@ input,
 textarea {
   color: $color-input-text;
   padding: $input-padding-large;
-  font-size: 1.6rem;
   border: $border;
   border-radius: $border-radius;
   width: 100%;
@@ -67,10 +66,6 @@ form {
 
 textarea {
   height: 10rem;
-}
-
-label {
-  font-size: 1.5rem;
 }
 
 fieldset {
