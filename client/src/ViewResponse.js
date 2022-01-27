@@ -30,15 +30,21 @@ const ViewResponse = () => {
     <div className={cx("medscribe", style.container)}>
       {status === "success" && (
         <div className={style.intake}>
-          <h1>{response.title}</h1>
-          <div className={style.description}>{response.description}</div>
-          {response.sections.map((section) => (
-            <FormInput
-              section={section}
-              onAnswerChange={onAnswerChange}
-              key={section.id}
-            />
-          ))}
+          <div className={style.titleContainer}>
+            <h1 className={style.title}>{response.title}</h1>
+          </div>
+          <div className={style.descriptionContainer}>
+            <div className={style.description}>{response.description}</div>
+          </div>
+          <div className={style.sectionContainer}>
+            {response.sections.map((section) => (
+              <FormInput
+                section={section}
+                onAnswerChange={onAnswerChange}
+                key={section.id}
+              />
+            ))}
+          </div>
         </div>
       )}
     </div>

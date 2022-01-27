@@ -8,6 +8,7 @@ import styles from "./Home.module.scss";
 import "react-select-search/style.css";
 import "./react-selectsearch-custom.scss";
 import "react-datetime/css/react-datetime.css";
+import "./react-datetime-custom.scss";
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import MedscribeIntake from "./MedscribeIntake";

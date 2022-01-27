@@ -4,20 +4,26 @@ import Button from "./Button";
 import styles from "./Header.module.scss";
 
 function Header() {
-  let signedInUser = true;
+  let user = {
+    auth: true,
+    type: "provider",
+  };
 
   return (
     <div className={styles.header}>
       <div className={styles.siteName}>🩺 Medscribe</div>
       <div className={styles.rightNav}>
-        {!signedInUser ? (
+        {!user.auth && (
           <>
-            <Button to="/signup">Get Started</Button>
-            <Button to="/signin" type="secondary">
-              Sign In
+            <Button to="/signin/patient" type="primary">
+              Patient Sign In
+            </Button>
+            <Button to="/signin/provider" type="secondary">
+              Provider Sign In
             </Button>
           </>
-        ) : (
+        )}
+        {user.auth && user.type === "provider" && (
           <>
             <Button to="/forms" type="primary">
               Forms

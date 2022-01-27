@@ -5,18 +5,43 @@
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
+  padding-bottom: 5rem;
 }
 
 .intake {
   width: 80rem;
   background-color: whitesmoke;
-  padding: 2rem;
   margin-top: 2rem;
   font-size: 2rem;
   box-shadow: $box-shadow-light;
 }
 
+.title {
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.titleContainer {
+  padding: 1.5rem 2rem;
+
+  background-color: skyblue;
+  line-height: 300%;
+  margin-bottom: 2rem;
+}
+
+.descriptionContainer {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
 .description {
   font-size: 2rem;
-  margin-bottom: 2rem;
+}
+
+.sectionContainer {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
