@@ -18,16 +18,16 @@ const FormInput = (props) => {
   const { id, title, type, required, options, answer } = props.section;
   const { onAnswerChange = () => {} } = props;
 
-  const onOptionChange = (value, selected) => {
-    const newAnswer = [...answer];
+  const onOptionChange = (e) => {
+    let newAnswer = new Set(answer);
 
-    let index = newAnswer.indexOf(value);
-
-    if (selected && index === -1) {
-      newAnswer.push(value);
+    if (e.target.checked) {
+      newAnswer.add(e.target.id);
+    } else {
+      newAnswer.delete(e.target.id);
     }
 
-    onAnswerChange(newAnswer);
+    onAnswerChange(props.section, Array.from(newAnswer));
   };
 
   const onChange = (e) => {
@@ -65,7 +65,7 @@ const FormInput = (props) => {
         />
       </fieldset>
     );
-  } else if (type === InputTypes.Checkbox) {
+  } else if (type === InputTypes.CheckboxGroup) {
     return (
       <CheckboxGroup title={title}>
         {options.map((option) => (
@@ -73,6 +73,7 @@ const FormInput = (props) => {
             label={option}
             key={toKey(option)}
             onChange={onOptionChange}
+            checked={answer.includes(option)}
           />
         ))}
       </CheckboxGroup>
