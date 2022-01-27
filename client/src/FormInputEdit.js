@@ -46,6 +46,11 @@ const FormInputEdit = (props) => {
           <i className="icon-clock"></i>Date/time entry
         </div>
       )}
+      {type === InputTypes.Date && (
+        <div className={style.textInput}>
+          <i className="icon-clock"></i>Date entry
+        </div>
+      )}
       {type === InputTypes.Dropdown && (
         <DropdownGroupEdit options={options} onChange={onOptionsChange} />
       )}

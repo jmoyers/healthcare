@@ -40,78 +40,90 @@ const FormInput = (props) => {
     }
   };
 
-  console.log(props.section);
+  return (
+    <>
+      {type === InputTypes.Header && (
+        <div className={style.sectionHeader}>{title}</div>
+      )}
 
-  if (type === InputTypes.Header) {
-    return <div className={style.sectionHeader}>{title}</div>;
-  } else if (type === InputTypes.ShortAnswer) {
-    return (
-      <fieldset>
-        <label htmlFor={id}>{title}</label>
-        <input
-          className={style.shortAnswer}
-          id={id}
-          value={answer}
-          onChange={onChange}
-        />
-      </fieldset>
-    );
-  } else if (type === InputTypes.Paragraph) {
-    return (
-      <fieldset>
-        <label htmlFor={id}>{title}</label>
-        <textarea
-          className={style.paragraph}
-          id={id}
-          value={answer}
-          onChange={onChange}
-        />
-      </fieldset>
-    );
-  } else if (type === InputTypes.CheckboxGroup) {
-    return (
-      <CheckboxGroup title={title}>
-        {options.map((option) => (
-          <CheckboxOption
-            label={option}
-            key={toKey(option)}
-            onChange={onOptionChange}
-            checked={answer.includes(option)}
+      {type === InputTypes.ShortAnswer && (
+        <fieldset className={style.shortAnswer}>
+          <label htmlFor={id}>{title}</label>
+          <input
+            className={style.shortAnswerInput}
+            id={id}
+            value={answer}
+            onChange={onChange}
           />
-        ))}
-      </CheckboxGroup>
-    );
-  } else if (type === InputTypes.Dropdown) {
-    const selectsearch_options = options.map((option) => ({
-      name: option,
-      value: toKey(option),
-    }));
+        </fieldset>
+      )}
 
-    return (
-      <fieldset>
-        <label htmlFor={id} className={style.dropdownLabel}>
-          {title}
-        </label>
-        <SelectSearch
-          options={selectsearch_options}
-          name={id}
-          value={toKey(answer)}
-          onChange={onChange}
-        />
-      </fieldset>
-    );
-  } else if (type === InputTypes.DateTime) {
-    return (
-      <fieldset>
-        <label htmlFor={id} className={style.datetimeLabel}>
-          {title}
-        </label>
-        <Datetime onChange={onChange} value={new Date(answer)} />
-      </fieldset>
-    );
-  }
+      {type === InputTypes.Paragraph && (
+        <fieldset className={style.paragraph}>
+          <label htmlFor={id}>{title}</label>
+          <textarea
+            className={style.paragraphInput}
+            id={id}
+            value={answer}
+            onChange={onChange}
+          />
+        </fieldset>
+      )}
 
-  return null;
+      {type === InputTypes.CheckboxGroup && (
+        <CheckboxGroup title={title}>
+          {options.map((option) => (
+            <CheckboxOption
+              label={option}
+              key={toKey(option)}
+              onChange={onOptionChange}
+              checked={answer.includes(option)}
+            />
+          ))}
+        </CheckboxGroup>
+      )}
+
+      {type === InputTypes.Dropdown && (
+        <fieldset className={style.dropdown}>
+          <label htmlFor={id} className={style.dropdownLabel}>
+            {title}
+          </label>
+          <SelectSearch
+            options={options.map((option) => ({
+              name: option,
+              value: toKey(option),
+            }))}
+            name={id}
+            value={toKey(answer)}
+            onChange={onChange}
+          />
+        </fieldset>
+      )}
+
+      {type === InputTypes.DateTime && (
+        <fieldset className={style.datetime}>
+          <label htmlFor={id} className={style.datetimeLabel}>
+            {title}
+          </label>
+          <Datetime onChange={onChange} value={new Date(answer)} />
+        </fieldset>
+      )}
+
+      {type === InputTypes.Date && (
+        <fieldset className={style.datetime}>
+          <label htmlFor={id} className={style.datetimeLabel}>
+            {title}
+          </label>
+          <Datetime
+            onChange={onChange}
+            dateFormat="MM-DD-YYYY"
+            timeFormat={false}
+            value={new Date(answer)}
+          />
+        </fieldset>
+      )}
+    </>
+  );
 };
 
 export default FormInput;

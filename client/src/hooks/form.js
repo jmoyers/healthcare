@@ -112,6 +112,7 @@ const InputTypes = {
   CheckboxGroup: "CHECKBOX_GROUP",
   Dropdown: "DROPDOWN",
   DateTime: "DATETIME",
+  Date: "DATE",
 };
 
 const InputPrettyNames = [
@@ -134,6 +135,10 @@ const InputPrettyNames = [
   {
     name: "Dropdown",
     value: InputTypes.Dropdown,
+  },
+  {
+    name: "Date",
+    value: InputTypes.Date,
   },
   {
     name: "Date/Time",

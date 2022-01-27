@@ -3,14 +3,26 @@
 .sectionHeader {
   font-size: 3rem;
   color: $color-button-primary;
-  margin-top: 1rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .shortAnswer {
   margin: $input-margin;
+  flex-basis: 50%;
 }
 
 .paragraph {
+  flex-basis: 100%;
   margin: $input-margin;
+}
+
+.datetime {
+  flex-basis: 50%;
+}
+
+.dropdown {
+  flex-basis: 100%;
 }

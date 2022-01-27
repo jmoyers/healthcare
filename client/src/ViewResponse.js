@@ -36,7 +36,7 @@ const ViewResponse = () => {
           <div className={style.descriptionContainer}>
             <div className={style.description}>{response.description}</div>
           </div>
-          <div className={style.sectionContainer}>
+          <div className={style.sectionsContainer}>
             {response.sections.map((section) => (
               <FormInput
                 section={section}
