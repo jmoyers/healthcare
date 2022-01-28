@@ -1,7 +1,14 @@
 import style from "./TabBar.module.scss";
+import Button from "./Button";
 
-const TabBar = ({ children }) => (
-  <div className={style.container}>{children}</div>
+const TabBar = ({ actions }) => (
+  <div className={style.container}>
+    {actions.map((action) => (
+      <Button key={action.name} icon={action.icon} onClick={actions.onClick}>
+        {action.name}
+      </Button>
+    ))}
+  </div>
 );
 
 export default TabBar;

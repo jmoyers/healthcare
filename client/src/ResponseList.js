@@ -1,10 +1,8 @@
 import { useResponses, useResponseDelete } from "./hooks/response";
 import { useNavigate } from "react-router-dom";
 
-import style from "./ResponseList.module.scss";
-import cx from "classnames";
-
-import Button from "./Button";
+import List from "./List";
+import ResponseRowCell from "./ResponseRowCell";
 
 const ResponseList = () => {
   let { status, data: responses } = useResponses();
@@ -21,61 +19,28 @@ const ResponseList = () => {
     deleteResponse(id);
   };
 
-  return (
-    <div className={style.container}>
-      <h1>All Responses</h1>
-      <div className={style.table}>
-        {status === "success" && responses.length === 0 && (
-          <div className={style.emptyMessage}>
-            Your forms do not have any responses yet.
-          </div>
-        )}
+  const props = {
+    title: "All Responses",
+    items: responses,
+    rowActions: [
+      {
+        name: "View",
+        icon: "docs",
+        type: "primary",
+        onClick: onViewClick,
+      },
+      {
+        name: "Delete",
+        icon: "trash",
+        type: "danger",
+        onClick: onDeleteClick,
+      },
+    ],
+    RowCell: ResponseRowCell,
+    emptyMessage: "Your forms do not have any responses yet",
+  };
 
-        {status === "success" &&
-          responses.map((response) => (
-            <div className={style.row} key={response.id}>
-              <div className={cx(style.cell, style.title)}>
-                <i className={cx(style.responseIcon, "icon-list")}></i>
-                <div>
-                  <div className={style.fromForm}>
-                    <span className={style.responseFormTitle}>Form</span>:{" "}
-                    {response.title}
-                  </div>
-                  <div className={style.sectionsContainer}>
-                    {response.sections
-                      .slice(0, 3)
-                      .filter((section) => section.type !== "HEADER")
-                      .map((section) => (
-                        <div className={style.sectionContainer}>
-                          <span className={style.responseFormTitle}>
-                            {section.title}
-                          </span>
-                          : {section.answer}
-                        </div>
-                      ))}
-                  </div>
-                </div>
-              </div>
-              <div className={cx(style.cell, style.actions)}>
-                <Button
-                  icon="doc-text"
-                  onClick={() => onViewClick(response.id)}
-                >
-                  View
-                </Button>
-                <Button
-                  icon="trash"
-                  type="danger"
-                  onClick={() => onDeleteClick(response.id)}
-                >
-                  Delete
-                </Button>
-              </div>
-            </div>
-          ))}
-      </div>
-    </div>
-  );
+  return status === "success" ? <List {...props} /> : null;
 };
 
 export default ResponseList;

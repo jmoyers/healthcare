@@ -1,0 +1,23 @@
+@import "variables";
+
+.title {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  height: 100%;
+
+  @include md {
+    font-size: 1.5rem;
+  }
+}
+
+.icon {
+  margin-right: 1rem;
+  font-size: 4rem;
+  color: lighten($color-text-primary, 30%);
+}
+
+.cell {
+  width: 30rem;
+  flex: 1;
+}

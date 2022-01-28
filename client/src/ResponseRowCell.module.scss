@@ -1,0 +1,30 @@
+@import "variables";
+
+.cell {
+  width: 30rem;
+  flex: 1;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  height: 100%;
+}
+
+.fromForm {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.responseFormTitle {
+  font-weight: bold;
+}
+
+.sectionsContainer {
+  font-size: 1.5rem;
+}
+
+.sectionContainer {
+  font-size: 1rem;
+}

@@ -2,7 +2,7 @@ import style from "./HamburgerMenu.module.scss";
 import cx from "classnames";
 
 const HamburgerMenu = (props) => {
-  const { items, open, formId, onClick = () => {} } = props;
+  const { actions, open, itemId } = props;
 
   return (
     <div
@@ -11,25 +11,18 @@ const HamburgerMenu = (props) => {
         [style.menuOpen]: open,
       })}
     >
-      {items.map((item) => (
-        <div
-          key={item}
-          className={style.menuItem}
-          onClick={() => onClick(item, formId)}
-        >
+      {actions &&
+        actions.map((action) => (
           <div
-            className={cx({
-              [style.navText]: true,
-              "icon-users": item === "Link",
-              "icon-list": item === "Preview",
-              "icon-cog": item === "Edit",
-              "icon-trash": item === "Delete",
-            })}
+            key={action.name}
+            className={style.menuItem}
+            onClick={() => action.onClick(itemId)}
           >
-            {item}
+            <div className={cx(style.navText, `icon-${action.icon}`)}>
+              {action.name}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 };

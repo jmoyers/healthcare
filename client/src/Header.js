@@ -31,19 +31,30 @@ function Header() {
   let menuItems = [];
 
   if (user.auth && user.type === "provider") {
-    menuItems = ["Forms", "Responses", "Sign Out"];
+    menuItems = [
+      {
+        name: "Forms",
+        onClick: () => {
+          setMenuExpanded(false);
+          navigate("/forms");
+        },
+      },
+      {
+        name: "Responses",
+        onClick: () => {
+          setMenuExpanded(false);
+          navigate("/responses");
+        },
+      },
+      {
+        name: "Sign Out",
+        onClick: () => {
+          setMenuExpanded(false);
+          navigate("/signout");
+        },
+      },
+    ];
   }
-
-  const onMenuItemClick = (item) => {
-    const linkMap = {
-      Forms: "/forms",
-      Responses: "/responses",
-      "Sign Out": "/signout",
-    };
-
-    navigate(linkMap[item]);
-    setMenuExpanded(false);
-  };
 
   return (
     <div>
@@ -85,11 +96,7 @@ function Header() {
           ></IconToggleButton>
         </div>
       </div>
-      <HamburgerMenu
-        items={menuItems}
-        open={menuExpanded}
-        onClick={onMenuItemClick}
-      />
+      <HamburgerMenu actions={menuItems} open={menuExpanded} />
     </div>
   );
 }
