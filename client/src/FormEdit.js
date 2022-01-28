@@ -3,13 +3,14 @@ import style from "./FormEdit.module.scss";
 import cx from "classnames";
 import TabBar from "./TabBar";
 import FormInputEdit from "./FormInputEdit";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { nanoid } from "nanoid";
 
 import { InputTypes, useForm, useFormUpdate } from "./hooks/form";
 
 const FormEdit = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { status, data: form } = useForm(id);
   const { mutate } = useFormUpdate(id);
 
@@ -118,6 +119,11 @@ const FormEdit = () => {
       name: "Add Section",
       icon: "plus",
       onClick: onClickAdd,
+    },
+    {
+      name: "Preview Form",
+      icon: "docs",
+      onClick: () => navigate(`/preview/${id}`),
     },
   ];
 

@@ -3,12 +3,14 @@ import style from "./ViewResponse.module.scss";
 import cx from "classnames";
 
 import FormInput from "./FormInput";
+import TabBar from "./TabBar";
 
 import { useForm } from "./hooks/form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const PreviewForm = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { status, data: form } = useForm(id);
 
   return (
@@ -28,6 +30,15 @@ const PreviewForm = () => {
           </div>
         </div>
       )}
+      <TabBar
+        actions={[
+          {
+            name: "Edit Form",
+            onClick: () => navigate(`/form/${id}/edit`),
+            icon: "cog",
+          },
+        ]}
+      ></TabBar>
     </div>
   );
 };

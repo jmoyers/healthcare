@@ -1,6 +1,7 @@
 @import "variables";
 
 .container {
+  display: flex;
   border: 1px solid $color-border;
   width: 80rem;
   padding: 2rem;
