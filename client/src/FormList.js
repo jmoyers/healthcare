@@ -53,6 +53,17 @@ const FormList = () => {
     <div className={style.container}>
       <h1>Forms</h1>
       <div className={style.table}>
+        {status === "success" && forms.length === 0 && (
+          <div className={style.emptyMessage}>
+            <div style={{ marginBottom: "2rem" }}>
+              You have not created any forms yet.
+            </div>
+            <Button type="primary" icon="plus" onClick={onCreateFormClick}>
+              Create New Form
+            </Button>
+          </div>
+        )}
+
         {status === "success" &&
           forms.map((form) => (
             <div className={style.row} key={form.id}>

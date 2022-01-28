@@ -8,7 +8,6 @@ const ShortAnswer = (props) => {
 
   const onValueChange = (e) => {
     setAnswer(e.target.value);
-
     onChange(e);
   };
 

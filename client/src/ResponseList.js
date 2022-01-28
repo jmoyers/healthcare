@@ -26,6 +26,12 @@ const ResponseList = () => {
     <div className={style.container}>
       <h1>All Responses</h1>
       <div className={style.table}>
+        {status === "success" && responses.length === 0 && (
+          <div className={style.emptyMessage}>
+            Your forms do not have any responses yet.
+          </div>
+        )}
+
         {status === "success" &&
           responses.map((response) => (
             <div className={style.row} key={response.id}>
