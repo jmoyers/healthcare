@@ -6,6 +6,12 @@
   background-color: white;
   padding: 3rem;
   box-shadow: $box-shadow-home;
+
+  @include md {
+    box-shadow: none;
+    padding: 2rem;
+    border-bottom: 1px solid $color-border;
+  }
 }
 
 .siteName {
@@ -13,9 +19,17 @@
   font-weight: bold;
   letter-spacing: 0.2rem;
   color: $color-button-primary;
+
+  @include md {
+    font-size: 2rem;
+  }
 }
 
 .rightNav {
   display: flex;
   justify-content: space-around;
+
+  @include md {
+    display: none;
+  }
 }

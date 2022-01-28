@@ -20,10 +20,6 @@ const FormList = () => {
     );
   };
 
-  const onResponsesClick = (id) => {
-    navigate(`/form/${id}/responses`);
-  };
-
   const onEditClick = (id) => {
     navigate(`/form/${id}/edit`);
   };
@@ -51,7 +47,7 @@ const FormList = () => {
 
   return (
     <div className={style.container}>
-      <h1>Forms</h1>
+      <h1 className={style.componentTitle}>Forms</h1>
       <div className={style.table}>
         {status === "success" && forms.length === 0 && (
           <div className={style.emptyMessage}>

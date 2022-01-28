@@ -1,11 +1,10 @@
 import { useResponses, useResponseDelete } from "./hooks/response";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import style from "./ResponseList.module.scss";
 import cx from "classnames";
 
 import Button from "./Button";
-import { useEffect } from "react";
 
 const ResponseList = () => {
   let { status, data: responses } = useResponses();

@@ -1,0 +1,11 @@
+@import "variables";
+
+.menu {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.menuClosed {
+  display: none;
+}

@@ -4,6 +4,16 @@
   width: 80rem;
   margin-left: auto;
   margin-right: auto;
+
+  @include md {
+    width: 100%;
+  }
+}
+
+.componentTitle {
+  @include md {
+    display: none;
+  }
 }
 
 .emptyMessage {
@@ -16,6 +26,10 @@
 .table {
   width: 100%;
   height: 10rem;
+
+  @include md {
+    height: 8rem;
+  }
 }
 
 .row {
@@ -30,6 +44,13 @@
   border: 1px solid $color-border;
   border-radius: $border-radius;
   padding: 2rem;
+
+  @include md {
+    border: none;
+    border-bottom: 1px solid $color-border;
+    margin-bottom: 0;
+    padding: 1rem;
+  }
 }
 
 .cell {
@@ -42,6 +63,10 @@
   align-items: center;
   font-size: 2rem;
   height: 100%;
+
+  @include md {
+    font-size: 1.5rem;
+  }
 }
 
 .formIcon {
