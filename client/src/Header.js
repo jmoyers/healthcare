@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import Button from "./Button";
 import styles from "./Header.module.scss";
 
@@ -9,9 +11,19 @@ function Header() {
     type: "provider",
   };
 
+  const navigate = useNavigate();
+
+  const onSiteNameClick = () => {
+    if (user.auth && user.type === "provider") {
+      navigate("/forms");
+    }
+  };
+
   return (
     <div className={styles.header}>
-      <div className={styles.siteName}>🩺 Medscribe</div>
+      <div className={styles.siteName} onClick={onSiteNameClick}>
+        🩺 Medscribe
+      </div>
       <div className={styles.rightNav}>
         {!user.auth && (
           <>

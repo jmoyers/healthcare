@@ -9,6 +9,7 @@ import cx from "classnames";
 
 import Button from "./Button";
 import HamburgerMenu from "./HamburgerMenu";
+import FormListTabBar from "./FormListTabBar";
 
 const FormList = () => {
   const { status, data: forms } = useForms();
@@ -127,11 +128,7 @@ const FormList = () => {
               />
             </div>
           ))}
-      </div>
-      <div className={style.controlsContainer}>
-        <Button type="primary" icon="plus" onClick={onCreateFormClick}>
-          Create New Form
-        </Button>
+        <FormListTabBar></FormListTabBar>
       </div>
     </div>
   );

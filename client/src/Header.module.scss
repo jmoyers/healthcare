@@ -19,6 +19,7 @@
   font-weight: bold;
   letter-spacing: 0.2rem;
   color: $color-button-primary;
+  cursor: pointer;
 
   @include md {
     font-size: 2rem;
