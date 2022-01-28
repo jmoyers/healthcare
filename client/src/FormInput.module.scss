@@ -11,8 +11,16 @@
 
 .datetime {
   flex-basis: 50%;
+
+  @include md {
+    flex-basis: 100%;
+  }
 }
 
 .dropdown {
   flex-basis: 100%;
+
+  @include md {
+    flex-basis: 100%;
+  }
 }

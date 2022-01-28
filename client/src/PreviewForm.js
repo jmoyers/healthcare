@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./PreviewForm.module.scss";
+import style from "./ViewResponse.module.scss";
 import cx from "classnames";
 
 import FormInput from "./FormInput";

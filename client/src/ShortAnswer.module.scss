@@ -3,4 +3,8 @@
 .shortAnswer {
   margin: $input-margin;
   flex-basis: 50%;
+
+  @include md {
+    flex-basis: 100%;
+  }
 }

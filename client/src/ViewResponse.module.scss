@@ -13,6 +13,13 @@
   margin-top: 2rem;
   font-size: 2rem;
   box-shadow: $box-shadow-light;
+
+  @include md {
+    margin-top: 0;
+    width: 100%;
+    font-size: 1.5rem;
+    box-shadow: none;
+  }
 }
 
 .title {
@@ -26,6 +33,10 @@
 
   background-color: $color-button-primary;
   line-height: 300%;
+
+  @include md {
+    padding: 1rem;
+  }
 }
 
 .descriptionContainer {
@@ -35,6 +46,10 @@
   padding-bottom: 3rem;
   margin: 0;
   background-color: whitesmoke;
+
+  @include md {
+    padding: 1rem;
+  }
 }
 
 .description {
