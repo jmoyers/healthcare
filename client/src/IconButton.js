@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./IconButton.module.scss";
 import cx from "classnames";
 
@@ -10,6 +10,8 @@ function IconButton(props) {
     size = "sm",
     className = [],
   } = props;
+
+  const [active, setActive] = useState(false);
 
   const _onClick = (e) => {
     // sane default
@@ -27,6 +29,7 @@ function IconButton(props) {
           [styles.border]: border,
           [styles.sm]: size === "sm",
           [styles.md]: size === "md",
+          [styles.lg]: size === "lg",
         },
         className
       )}

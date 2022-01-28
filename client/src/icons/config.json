@@ -101,6 +101,24 @@
       "css": "doc-text",
       "code": 59407,
       "src": "entypo"
+    },
+    {
+      "uid": "2cfb3f2b46b34a1790aec0aa846297b6",
+      "css": "menu",
+      "code": 59408,
+      "src": "entypo"
+    },
+    {
+      "uid": "815503841e980c848f55e0271deacead",
+      "css": "link",
+      "code": 59409,
+      "src": "entypo"
+    },
+    {
+      "uid": "1a7104205ea96e6f40ac716d0ca72f21",
+      "css": "lock",
+      "code": 59410,
+      "src": "entypo"
     }
   ]
 }

@@ -1,5 +1,4 @@
-* Do a tablet pass
-* Do a phone pass
+* Do a mobile pass
 * Create a component for sign-in
 * Create a component for account creation
 * Make the right nav of the header disappear unless you're a form admin
