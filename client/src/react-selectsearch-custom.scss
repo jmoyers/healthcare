@@ -3,8 +3,11 @@
 .medscribe .select-search {
   align-self: center;
   margin: 0;
-  z-index: 9999 !important;
   margin: $input-margin;
+}
+
+.medscribe .select-search__select {
+  z-index: 9999 !important;
 }
 
 .medscribe

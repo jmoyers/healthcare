@@ -4,28 +4,23 @@
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 15rem;
+
+  @include md {
+    margin: 0;
+    padding-bottom: 5rem;
+  }
 }
 
 .formEditContainer {
   width: 80rem;
+
+  @include md {
+    width: 100%;
+    padding: 0;
+  }
 }
 
-.controlsContainer {
-  border: 1px solid $color-border;
-  width: 80rem;
-  padding: 2rem;
-
-  margin-left: -40rem;
-
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-
-  background-color: white;
-  z-index: 999;
-}
-
-.formSection {
+.section {
   width: 100%;
   margin-top: 5rem;
   min-height: 10rem;
@@ -33,8 +28,30 @@
   border: 1px solid $color-border;
   border-radius: $border-radius;
   background-color: whitesmoke;
+
+  @include md {
+    border-radius: 0;
+    width: 100%;
+    padding: 1rem;
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid $color-border;
+  }
 }
 
-:global .medscribe h2 {
+.title {
   margin-bottom: 2rem;
+
+  @include md {
+    display: none;
+  }
+}
+
+.sectionTitle {
+  margin-bottom: 2rem;
+
+  @include md {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 }

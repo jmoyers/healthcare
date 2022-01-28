@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect } from "react";
 import style from "./FormEdit.module.scss";
 import cx from "classnames";
-import Button from "./Button";
+import TabBar from "./TabBar";
 import FormInputEdit from "./FormInputEdit";
 import { useParams } from "react-router-dom";
 import { nanoid } from "nanoid";
@@ -69,6 +69,8 @@ const FormEdit = () => {
   };
 
   const onClickAdd = () => {
+    console.log("click add");
+
     const newForm = {
       ...form,
     };
@@ -85,8 +87,6 @@ const FormEdit = () => {
   };
 
   const onClickDelete = (section) => {
-    console.log("click delete");
-
     for (const [i, sec] of form.sections.entries()) {
       if (sec.id === section.id) {
         const secTmp = [...form.sections];
@@ -113,14 +113,22 @@ const FormEdit = () => {
     mutate(form);
   };
 
+  const tabBarActions = [
+    {
+      name: "Add Section",
+      icon: "plus",
+      onClick: onClickAdd,
+    },
+  ];
+
   return (
     <div className={cx("medscribe", style.container)}>
-      <h1>Edit Form</h1>
+      <h1 className={style.title}>Edit Form</h1>
       <div className={style.formEditContainer}>
         {status === "success" && (
           <>
-            <div className={style.formSection}>
-              <h2>Title</h2>
+            <div className={style.section}>
+              <h2 className={style.sectionTitle}>Title</h2>
               <input
                 type="text"
                 value={form.title}
@@ -128,8 +136,8 @@ const FormEdit = () => {
               ></input>
             </div>
 
-            <div className={style.formSection}>
-              <h2>Description</h2>
+            <div className={style.section}>
+              <h2 className={style.sectionTitle}>Description</h2>
               <input
                 type="text"
                 value={form.description}
@@ -148,11 +156,7 @@ const FormEdit = () => {
           </>
         )}
       </div>
-      <div className={style.controlsContainer}>
-        <Button type="primary" icon="plus" onClick={onClickAdd}>
-          Add Section
-        </Button>
-      </div>
+      <TabBar actions={tabBarActions} />
     </div>
   );
 };

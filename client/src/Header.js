@@ -57,7 +57,7 @@ function Header() {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.siteName} onClick={onSiteNameClick}>
           🩺 Medscribe
