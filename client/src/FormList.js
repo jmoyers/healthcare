@@ -51,6 +51,7 @@ const FormList = () => {
 
   return (
     <div className={style.container}>
+      <h1>Forms</h1>
       <div className={style.table}>
         {status === "success" &&
           forms.map((form) => (
@@ -60,14 +61,14 @@ const FormList = () => {
                 {form.title}
               </div>
               <div className={cx(style.cell, style.actions)}>
-                <Button
-                  icon="archive"
-                  onClick={() => onResponsesClick(form.id)}
-                >
-                  Responses
-                </Button>
                 <Button icon="users" onClick={() => onLinkClick(form.id)}>
                   Link
+                </Button>
+                <Button
+                  icon="list"
+                  onClick={() => navigate(`/preview/${form.id}`)}
+                >
+                  Preview
                 </Button>
                 <Button
                   icon="cog"

@@ -1,13 +1,14 @@
 import { useResponses, useResponseDelete } from "./hooks/response";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import style from "./ResponseList.module.scss";
 import cx from "classnames";
 
 import Button from "./Button";
+import { useEffect } from "react";
 
 const ResponseList = () => {
-  const { status, data: responses } = useResponses();
+  let { status, data: responses } = useResponses();
 
   const navigate = useNavigate();
 
@@ -23,6 +24,7 @@ const ResponseList = () => {
 
   return (
     <div className={style.container}>
+      <h1>All Responses</h1>
       <div className={style.table}>
         {status === "success" &&
           responses.map((response) => (
@@ -34,14 +36,19 @@ const ResponseList = () => {
                     <span className={style.responseFormTitle}>Form</span>:{" "}
                     {response.title}
                   </div>
-                  {response.sections[0] && (
-                    <div className={style.firstSection}>
-                      <span className={style.responseFormTitle}>
-                        {response.sections[0].title}
-                      </span>
-                      : {response.sections[0].answer}
-                    </div>
-                  )}
+                  <div className={style.sectionsContainer}>
+                    {response.sections
+                      .slice(0, 3)
+                      .filter((section) => section.type !== "HEADER")
+                      .map((section) => (
+                        <div className={style.sectionContainer}>
+                          <span className={style.responseFormTitle}>
+                            {section.title}
+                          </span>
+                          : {section.answer}
+                        </div>
+                      ))}
+                  </div>
                 </div>
               </div>
               <div className={cx(style.cell, style.actions)}>

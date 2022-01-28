@@ -91,7 +91,10 @@ const FormInput = (props) => {
           <label htmlFor={id} className={style.datetimeLabel}>
             {title}
           </label>
-          <Datetime onChange={onChange} value={new Date(answer)} />
+          <Datetime
+            onChange={onChange}
+            value={answer ? new Date(answer) : false}
+          />
         </fieldset>
       )}
 
@@ -104,7 +107,7 @@ const FormInput = (props) => {
             onChange={onChange}
             dateFormat="MM-DD-YYYY"
             timeFormat={false}
-            value={new Date(answer)}
+            value={answer ? new Date(answer) : false}
           />
         </fieldset>
       )}

@@ -18,6 +18,7 @@ import FormList from "./FormList";
 import ResponseList from "./ResponseList";
 import ViewResponse from "./ViewResponse";
 import NewResponse from "./NewResponse";
+import PreviewForm from "./PreviewForm";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/responses" element={<ResponseList />} />
           <Route path="/response/:id" element={<ViewResponse />} />
           <Route path="/respond/:id/new" element={<NewResponse />} />
+          <Route path="/preview/:id" element={<PreviewForm />} />
         </Routes>
       </div>
     </BrowserRouter>

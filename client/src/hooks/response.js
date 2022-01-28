@@ -37,6 +37,7 @@ function useResponseDelete() {
           newResponses.splice(i);
         }
       }
+      console.log(previousValue, newResponses);
       queryClient.setQueryData(["responses"], newResponses);
       return previousValue;
     },
