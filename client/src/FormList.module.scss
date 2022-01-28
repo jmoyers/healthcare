@@ -48,8 +48,10 @@
   @include md {
     border: none;
     border-bottom: 1px solid $color-border;
+    border-radius: 0;
     margin-bottom: 0;
     padding: 1rem;
+    cursor: pointer;
   }
 }
 
@@ -80,6 +82,10 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  @include md {
+    display: none;
+  }
 }
 
 .controlsContainer {
