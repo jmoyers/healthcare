@@ -8,6 +8,13 @@
   box-sizing: inherit;
 }
 
+body {
+  @include md {
+    background-image: url("./images/double-bubble-outline.png");
+    background-repeat: repeat;
+  }
+}
+
 @font-face {
   font-family: "Lato";
   font-style: normal;

@@ -18,7 +18,6 @@
   box-shadow: $box-shadow-home;
 
   @include md {
-    box-shadow: none;
     padding: 2rem;
     border-bottom: 1px solid $color-border;
   }

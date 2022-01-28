@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { InputTypes, InputPrettyNames } from "./hooks/form";
 import child from "./FormInputEdit.module.scss";
 import base from "./FormEdit.module.scss";
