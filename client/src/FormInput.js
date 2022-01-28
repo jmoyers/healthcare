@@ -9,6 +9,8 @@ import "react-select-search/style.css";
 import "./react-selectsearch-custom.scss";
 import "react-datetime/css/react-datetime.css";
 import camelcase from "camelcase";
+import ShortAnswer from "./ShortAnswer";
+import Paragraph from "./Paragraph";
 
 const toKey = (string) => {
   return camelcase(string).substring(0, 10);
@@ -47,27 +49,11 @@ const FormInput = (props) => {
       )}
 
       {type === InputTypes.ShortAnswer && (
-        <fieldset className={style.shortAnswer}>
-          <label htmlFor={id}>{title}</label>
-          <input
-            className={style.shortAnswerInput}
-            id={id}
-            value={answer}
-            onChange={onChange}
-          />
-        </fieldset>
+        <ShortAnswer {...props.section} onChange={onChange} />
       )}
 
       {type === InputTypes.Paragraph && (
-        <fieldset className={style.paragraph}>
-          <label htmlFor={id}>{title}</label>
-          <textarea
-            className={style.paragraphInput}
-            id={id}
-            value={answer}
-            onChange={onChange}
-          />
-        </fieldset>
+        <Paragraph {...props.section} onChange={onChange} />
       )}
 
       {type === InputTypes.CheckboxGroup && (

@@ -98,10 +98,6 @@ const FormEdit = () => {
           sections: secTmp,
         };
 
-        console.log("delete", sec);
-        console.log("before", form.sections);
-        console.log("after", newForm.sections);
-
         mutate(newForm);
       }
     }
