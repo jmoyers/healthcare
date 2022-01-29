@@ -1,7 +1,11 @@
-# Healthcare Patient Intake App
+# Medscribe: A healthcare patient intake prototype
 
 This is a project showing my personal development practices. Feel free to
 browse around and check out the code.
+
+It is designed to help a clinician digitize their patient intake process, and
+allow them to create a fully customizable online form that is usable on a wide
+variety of device sizes.
 
 ## Goals
 
