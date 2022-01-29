@@ -7,6 +7,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { nanoid } from "nanoid";
 
 import { InputTypes, useForm, useFormUpdate } from "./hooks/form";
+import Paragraph from "./Paragraph";
+import ShortAnswer from "./ShortAnswer";
 
 const FormEdit = () => {
   const { id } = useParams();
@@ -42,7 +44,7 @@ const FormEdit = () => {
     let neededId = false;
 
     if (status === "success") {
-      for (const [i, section] of form.sections.entries()) {
+      for (const section of form.sections) {
         if (!section.id) {
           section.id = nanoid();
           neededId = true;
@@ -125,6 +127,12 @@ const FormEdit = () => {
       icon: "docs",
       onClick: () => navigate(`/preview/${id}`),
     },
+    {
+      name: "Done",
+      icon: "check",
+      type: "secondary",
+      onClick: () => navigate(`/forms`),
+    },
   ];
 
   return (
@@ -135,20 +143,22 @@ const FormEdit = () => {
           <>
             <div className={style.section}>
               <h2 className={style.sectionTitle}>Title</h2>
-              <input
+              <ShortAnswer
                 type="text"
                 value={form.title}
                 onChange={onChangeTitle}
-              ></input>
+                onFocus={(event) => event.target.select()}
+              ></ShortAnswer>
             </div>
 
             <div className={style.section}>
               <h2 className={style.sectionTitle}>Description</h2>
-              <input
+              <Paragraph
                 type="text"
                 value={form.description}
                 onChange={onChangeDesc}
-              ></input>
+                onFocus={(event) => event.target.select()}
+              ></Paragraph>
             </div>
 
             {form.sections.map((section) => (

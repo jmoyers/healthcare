@@ -14,7 +14,7 @@ browse around and check out the code.
 
 ## Features
 
-- [x] React-based front-end with scss
+- [x] React-based front-end with scss modules
   - [x] View individual form
   - [x] Edit invididual form
   - [x] View list of forms
@@ -31,4 +31,16 @@ browse around and check out the code.
   - [ ] serverless framework deploy on AWS via lambdas
   - [ ] DynamoDB back-end, local dynamodb for dev
 
-![wip screencast](medscribe.gif)
+Screencasts
+
+A clinician can create a new intake form
+![create intake form](create_form.gif)
+
+A clinician can preview their intake
+![preview intake form](preview_form.gif)
+
+A clinician can review all responses to forms
+![view responses](view_responses.gif)
+
+Desktop styling
+![desktop styling](desktop_styling.gif)

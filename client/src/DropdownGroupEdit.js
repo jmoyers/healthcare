@@ -33,7 +33,7 @@ const DropdownGroupEdit = (props) => {
             onChange={(e) => onNameChange(index, e.target.value)}
           ></input>
           <IconButton
-            icon="trash"
+            icon="erase"
             onClick={() => onClickRemove(index)}
           ></IconButton>
         </div>

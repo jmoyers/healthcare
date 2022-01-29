@@ -4,7 +4,12 @@ import Button from "./Button";
 const TabBar = ({ actions }) => (
   <div className={style.container}>
     {actions.map((action) => (
-      <Button key={action.name} icon={action.icon} onClick={action.onClick}>
+      <Button
+        key={action.name}
+        type={action.type}
+        icon={action.icon}
+        onClick={action.onClick}
+      >
         {action.name}
       </Button>
     ))}

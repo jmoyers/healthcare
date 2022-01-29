@@ -2,7 +2,11 @@ import { useState } from "react";
 import style from "./ShortAnswer.module.scss";
 
 const Paragraph = (props) => {
-  const { id, title, answer: initialAnswer, onChange = () => {} } = props;
+  let { id, value, title, answer: initialAnswer, onChange = () => {} } = props;
+
+  if (value) {
+    initialAnswer = value;
+  }
 
   const [answer, setAnswer] = useState(initialAnswer);
 
@@ -20,6 +24,7 @@ const Paragraph = (props) => {
         id={id}
         value={answer}
         onChange={onValueChange}
+        onFocus={(e) => e.target.select()}
       />
     </fieldset>
   );

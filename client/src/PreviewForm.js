@@ -37,6 +37,12 @@ const PreviewForm = () => {
             onClick: () => navigate(`/form/${id}/edit`),
             icon: "cog",
           },
+          {
+            name: "Done",
+            onClick: () => navigate(`/forms`),
+            icon: "check",
+            type: "secondary",
+          },
         ]}
       ></TabBar>
     </div>

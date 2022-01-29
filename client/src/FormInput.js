@@ -2,7 +2,7 @@ import { InputTypes } from "./hooks/form";
 import style from "./FormInput.module.scss";
 import CheckboxGroup from "./CheckboxGroup";
 import CheckboxOption from "./CheckboxOption";
-import SelectSearch from "react-select-search";
+import Select from "react-select";
 import Datetime from "react-datetime";
 
 import "react-select-search/style.css";
@@ -32,14 +32,16 @@ const FormInput = (props) => {
     onAnswerChange(props.section, Array.from(newAnswer));
   };
 
-  const onChange = (e) => {
-    if (e.target) {
-      onAnswerChange(props.section, e.target.value);
-    } else if (e.constructor.name === "String") {
-      onAnswerChange(props.section, e);
-    } else if (e.constructor.name === "Moment") {
-      onAnswerChange(props.section, e.toDate().toString());
-    }
+  const onInputChange = (event) => {
+    onAnswerChange(props.section, event.target.value);
+  };
+
+  const onSelectChange = (event) => {
+    onAnswerChange(props.section, event);
+  };
+
+  const onDateChange = (value) => {
+    onAnswerChange(props.section, value.toDate().toString());
   };
 
   return (
@@ -49,11 +51,11 @@ const FormInput = (props) => {
       )}
 
       {type === InputTypes.ShortAnswer && (
-        <ShortAnswer {...props.section} onChange={onChange} />
+        <ShortAnswer {...props.section} onChange={onInputChange} />
       )}
 
       {type === InputTypes.Paragraph && (
-        <Paragraph {...props.section} onChange={onChange} />
+        <Paragraph {...props.section} onChange={onInputChange} />
       )}
 
       {type === InputTypes.CheckboxGroup && (
@@ -74,14 +76,13 @@ const FormInput = (props) => {
           <label htmlFor={id} className={style.dropdownLabel}>
             {title}
           </label>
-          <SelectSearch
+          <Select
             options={options.map((option) => ({
-              name: option,
-              value: toKey(option),
+              label: option,
+              value: option,
             }))}
-            name={id}
-            value={toKey(answer)}
-            onChange={onChange}
+            value={answer}
+            onChange={onSelectChange}
           />
         </fieldset>
       )}
@@ -92,7 +93,7 @@ const FormInput = (props) => {
             {title}
           </label>
           <Datetime
-            onChange={onChange}
+            onChange={onDateChange}
             value={answer ? new Date(answer) : false}
           />
         </fieldset>
@@ -104,7 +105,7 @@ const FormInput = (props) => {
             {title}
           </label>
           <Datetime
-            onChange={onChange}
+            onChange={onDateChange}
             dateFormat="MM-DD-YYYY"
             timeFormat={false}
             value={answer ? new Date(answer) : false}

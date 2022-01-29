@@ -32,7 +32,7 @@
   @include md {
     border-radius: 0;
     width: 100%;
-    padding: 1rem;
+    padding: 2rem 2rem;
     margin: 0;
     border: none;
     border-bottom: 1px solid $color-border;
@@ -51,7 +51,7 @@
   margin-bottom: 2rem;
 
   @include md {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
   }
 }

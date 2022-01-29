@@ -117,34 +117,40 @@ const InputTypes = {
 
 const InputPrettyNames = [
   {
-    name: "Short answer",
+    label: "Short answer",
     value: InputTypes.ShortAnswer,
   },
   {
-    name: "Header",
+    label: "Header",
     value: InputTypes.Header,
   },
   {
-    name: "Paragraph",
+    label: "Paragraph",
     value: InputTypes.Paragraph,
   },
   {
-    name: "Checkbox Group",
+    label: "Checkbox Group",
     value: InputTypes.CheckboxGroup,
   },
   {
-    name: "Dropdown",
+    label: "Dropdown",
     value: InputTypes.Dropdown,
   },
   {
-    name: "Date",
+    label: "Date",
     value: InputTypes.Date,
   },
   {
-    name: "Date/Time",
+    label: "Date/Time",
     value: InputTypes.DateTime,
   },
 ];
+
+const getPrettyName = (type) => {
+  for (const fullType of InputPrettyNames) {
+    if (fullType.value === type) return fullType.label;
+  }
+};
 
 export {
   useForm,
@@ -154,4 +160,5 @@ export {
   useFormCreate,
   InputTypes,
   InputPrettyNames,
+  getPrettyName,
 };

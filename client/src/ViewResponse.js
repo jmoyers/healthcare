@@ -5,10 +5,12 @@ import cx from "classnames";
 import FormInput from "./FormInput";
 
 import { useResponse, useResponseUpdate } from "./hooks/response";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import TabBar from "./TabBar";
 
 const ViewResponse = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { status, data: response } = useResponse(id);
   const { mutate: updateReponse } = useResponseUpdate(id);
 
@@ -25,6 +27,14 @@ const ViewResponse = () => {
 
     updateReponse(newResponse);
   };
+
+  const tabBarActions = [
+    {
+      name: "Done",
+      icon: "check",
+      onClick: () => navigate(`/forms/${id}/thankyou`),
+    },
+  ];
 
   return (
     <div className={cx("medscribe", style.container)}>
@@ -47,6 +57,7 @@ const ViewResponse = () => {
           </div>
         </div>
       )}
+      <TabBar actions={tabBarActions} />
     </div>
   );
 };

@@ -1,7 +1,7 @@
-import { InputTypes, InputPrettyNames } from "./hooks/form";
+import { InputTypes, InputPrettyNames, getPrettyName } from "./hooks/form";
 import child from "./FormInputEdit.module.scss";
 import base from "./FormEdit.module.scss";
-import SelectSearch from "react-select-search";
+import Select from "react-select";
 
 import IconButton from "./IconButton";
 import CheckboxGroupEdit from "./CheckboxGroupEdit";
@@ -21,19 +21,23 @@ const FormInputEdit = (props) => {
     onChange({ ...props.section, required: !props.section.required });
   };
 
-  const onSelectChange = (value) => {
-    onChange({ ...props.section, type: value });
+  const onSelectChange = (e) => {
+    onChange({ ...props.section, type: e.value });
   };
 
   const onOptionsChange = (newOptions) => {
-    console.log("opt change", newOptions);
     onChange({ ...props.section, options: newOptions });
   };
 
   return (
     <div className={style.section}>
       <h2 className={style.sectionTitle}>Section</h2>
-      <input type="text" value={title} onChange={onTitleChange}></input>
+      <input
+        type="text"
+        value={title}
+        onChange={onTitleChange}
+        onFocus={(event) => event.target.select()}
+      ></input>
       {type === InputTypes.ShortAnswer && (
         <div className={style.textInput}>Short answer text</div>
       )}
@@ -71,12 +75,27 @@ const FormInputEdit = (props) => {
             />
           </fieldset>
         )}
-        <SelectSearch
+        <Select
           options={InputPrettyNames}
-          value={type}
+          value={{
+            label: getPrettyName(type),
+            value: type,
+          }}
+          menuPlacement="auto"
+          styles={{
+            control: (provided) => ({
+              ...provided,
+              width: "14rem",
+              marginTop: "0.5rem",
+            }),
+            menu: (provided) => ({
+              ...provided,
+              zIndex: 9999,
+            }),
+          }}
           name="questionType"
           onChange={onSelectChange}
-        ></SelectSearch>
+        ></Select>
         <IconButton
           size="md"
           icon="trash"
