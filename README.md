@@ -33,14 +33,18 @@ browse around and check out the code.
 
 Screencasts
 
-A clinician can create a new intake form
+### A clinician can create a new intake form
+
 ![create intake form](create_form.gif)
 
-A clinician can preview their intake
+### A clinician can preview their intake
+
 ![preview intake form](preview_form.gif)
 
-A clinician can review all responses to forms
+### A clinician can review all responses to forms
+
 ![view responses](view_responses.gif)
 
-Desktop styling
+### Desktop styling
+
 ![desktop styling](desktop_styling.gif)
